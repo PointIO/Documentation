@@ -1,0 +1,290 @@
+{
+    "basePath": "https://api.point.io/v2",
+    "apiVersion": "2.0",
+    "swaggerVersion":"1.1",
+    "resourcePath": "/",
+    "apis": [
+        {
+            "path": "/storagesites/list.{format}",
+            "operations": [
+                {
+                    "summary": "To get a list of your hubs in your account",
+                    "httpMethod": "GET",
+                    "nickname": "List_My_Hubs",
+                    "notes": "To get a list of your hubs in your account",
+  				"responseClass": "Result",
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "description": "Your Point.io Session Key",
+                            "dataType": "String",
+                            "paramType": "header",
+                            "required": "true"
+                        }
+                    ]
+                }
+            ]
+        },
+		{
+            "path": "/shareables/{shareableid}.{format}",
+            "operations": [
+                {
+                    "summary": "To get a list of activity from a specific hub in your account",
+                    "httpMethod": "GET",
+                    "nickname": "Get_Hub_Activity",
+                    "notes": "To get a list of activity from a specific hub in your account",
+					"responseClass": "Result",
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "description": "Your Point.io Session Key",
+                            "dataType": "String",
+                            "paramType": "header",
+                            "required": "true"
+                        },
+						{
+                            "name": "RoomId",
+                            "description": "RoomId of your Hub",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": "true"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/shareables/create.{format}",
+            "operations": [
+                {
+                    "summary": "To create (deploy) a new hub",
+                    "httpMethod": "POST",
+                    "nickname": "Create_New_Hub",
+                    "notes": "To create (deploy) a new hub using the API. When you deploy a new hub, there will be no shared files or invited users by default. You will then need to share files and add your users. ",
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "description": "Your Point.io Session Key",
+                            "dataType": "String",
+							"paramType": "header",
+                            "required": "true"
+                        },
+						{
+                            "name": "roomName",
+                            "description": "Friendly name for your hub",
+                            "dataType": "String",
+							"paramType": "query",
+                            "required": "true"
+                        },
+						{
+                            "name": "description",
+                            "description": "Description of the hub",
+                            "dataType": "String",
+							"paramType": "query",
+                            "required": "true"
+                        },
+						{
+                            "name": "enabled",
+                            "description": "Whether the hub is enabled for use",
+                            "dataType": "Numeric (0 or 1)",
+							"paramType": "query",
+                            "required": "false"
+                        },
+						{
+                            "name": "roomIcon",
+                            "description": "URL to a 29x29 pixel jpg or png image to use as the hub icon",
+                            "dataType": "String",
+							"paramType": "query",
+                            "required": "false"
+                        },
+						{
+                            "name": "mappedUrl",
+                            "description": "Custom URL (which hosts custom embed code) where this Hub can be accessed",
+                            "dataType": "String",
+							"paramType": "query",
+                            "required": "false"
+                        },
+						{
+                            "name": "maxusers",
+                            "description": "The enforced limit of members for this hub. Default is unlimited",
+                            "dataType": "Numeric",
+							"paramType": "query",
+                            "required": "false"
+                        },
+						{
+                            "name": "expirationdate",
+                            "description": "Expiration date for the hub",
+                            "dataType": "ODBC Date string",
+							"paramType": "query",
+                            "required": "false"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/shareables/{shareableid}/folders/{folderid}.{format}",
+            "operations": [
+                {
+                    "summary": "To add shared files to a hub",
+                    "httpMethod": "POST ",
+                    "nickname": "Add_Shared_Files",
+                    "notes": "To add shared files to a hub using the API",
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "description": "Your Point.io Session Key",
+                            "dataType": "String",
+							"paramType": "header",
+                            "required": "true"
+                        },
+                        {
+                            "name": "shareId",
+                            "description": "shareID of the access rule you want to had to your hub",
+                            "dataType": "String",
+							"paramType": "query",
+                            "required": "true"
+                        },
+						{
+                            "name": "shareName",
+                            "description": "Friendly label for the file shares to be displayed in the hub",
+                            "dataType": "String",
+							"paramType": "query",
+                            "required": "true"
+                        },
+						{
+                            "name": "enabled",
+                            "description": "Whether the hub is enabled for use",
+                            "dataType": "Numeric (0 or 1)",
+							"paramType": "query",
+                            "required": "false"
+                        },
+						{
+                            "name": "defaultRole",
+                            "description": "Specify a custom role that users will use to interact with files. Leave blank to use the default security defined in the access rule",
+                            "dataType": "String",
+							"paramType": "query",
+                            "required": "false"
+                        },
+						{
+                            "name": "chroot",
+                            "description": "The initial directory to share files from. Defaults to the root directory '/'",
+                            "dataType": "String",
+							"paramType": "query",
+                            "required": "true"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/shareables/{shareableid}/users/{userid}.{format}",
+            "operations": [
+                {
+                    "summary": "To add a user to a hub",
+                    "httpMethod": "POST",
+                    "nickname": "Add_User_To_Hub",
+                    "notes": "To add a user to a hub using the API",
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "description": "Your Point.io Session Key",
+                            "dataType": "String",
+							"paramType": "header",
+                            "required": "true"
+                        },
+						{
+                            "name": "email",
+                            "description": "Email address of the user to add to the hub",
+                            "dataType": "String",
+							"paramType": "query",
+                            "required": "true"
+                        }
+                    ]
+                }
+            ]
+        },        
+        {
+            "path": "/shareables.{format}",
+            "operations": [
+                {
+                    "summary": "To list shares in a hub",
+                    "httpMethod": "POST ",
+                    "nickname": "List_Shares_In_Hub",
+                    "notes": "To list shares in a hub using the API",
+                    "responseClass": "Result",
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "description": "Your Point.io Session Key",
+                            "dataType": "String",
+							"paramType": "header",
+                            "required": "true"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "models": {
+    	"Result":{
+			"properties": {
+			  "ERROR": {
+				"type": "int",
+				"description": "1 for Error, 0 for success"
+			  },
+			  "MESSAGE": {
+				"type": "string",
+				"description": "If an error occured, this will be provided with a description of the error"
+			  },
+			  "RESULT": {
+				"type": "string"
+			  }
+		  	},
+		  	"id": "Result"
+    	},
+    	"Error":{
+			"properties": {
+			  "ERROR": {
+				"type": "int",
+				"description": "1 for Error, 0 for success"
+			  },
+			  "MESSAGE": {
+				"type": "string",
+				"description": "If an error occured, this will be provided with a description of the error"
+			  }
+		  	},
+		  	"id": "Error"
+    	},
+    	"VariableResult":{
+			"properties": {
+			  "ERROR": {
+				"type": "int",
+				"description": "1 for Error, 0 for success"
+			  },
+			  "MESSAGE": {
+				"type": "string",
+				"description": "If an error occured, this will be provided with a description of the error"
+			  },
+			  "RESULT": {
+				"type": "ColData"
+			  }
+		  	},
+		  	"id": "VariableResult"
+    	},
+    	"ColData":{
+			"properties": {
+			  "COLUMNS": {
+				"type": "List",
+				"description": "An Array of strings containing labels for RESULT.DATA array indices"
+			  },
+			  "DATA": {
+				"type": "List",
+				"description": "A List of Lists containing data fields. The data field labels are described in RESULT.COLUMNS."
+			  }
+		  	},
+		  	"id": "ColData"
+    	}
+    }
+}
+
