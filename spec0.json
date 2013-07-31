@@ -1,0 +1,14 @@
+{
+	"apiVersion":"2.0",
+	"swaggerVersion":"1.1",
+	"nickname":"Point.io API",
+	"basePath":"http://pointio.info/sites/default/files",
+	"apis":[
+	{
+		"path":"/core.json",
+		"description":"Point.io Document API"
+	},{
+		"path":"/admin.json",
+		"description":"Point.io Admin API"
+	}
+]}
