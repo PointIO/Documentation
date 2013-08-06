@@ -2,7 +2,7 @@
 	"apiVersion":"2.0",
 	"swaggerVersion":"1.1",
 	"nickname":"Point.io API",
-	"basePath":"http://pointio.info/sites/default/files",
+	"basePath":"http://point.io/sites/point.io/files",
 	"apis":[
 	{
 		"path":"/core.json",
