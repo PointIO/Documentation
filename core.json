@@ -23,7 +23,7 @@
 				"paramType":"query",
 				"required":true
 			},{
-				"name":"appId",
+				"name":"apikey",
 				"description":"App ID of your Point.io application. See point.io/account for info.",
 				"dataType":"String",
 				"paramType":"query",
