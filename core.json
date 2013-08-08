@@ -957,12 +957,6 @@
 				"required":false,
 				"paramType":"query"
 			},{
-				"name":"folderid",
-				"description":"Id of the access rule containing the file. Use a SHAREID from a /folders/list.json call to identify the access rule.",
-				"dataType":"String",
-				"required":true,
-				"paramType":"query"
-			},{
 				"name":"containerid",
 				"description":"Id of the folder containing the file. Use a CONTAINERID provided from a /folders/list.json call. If not filled, the default selected folder will be the root directory of the access rule.",
 				"dataType":"String",
