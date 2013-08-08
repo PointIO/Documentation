@@ -15,14 +15,14 @@
                     "parameters": [
                         {
                             "name": "appId",
-                            "description": "",
+                            "description": "App ID of your Point.io application. See point.io/account for info.",
                             "dataType": "String",
 							"paramType": "query",
                             "required": true
                         },
 						{
                             "name": "appSecret",
-                            "description": "",
+                            "description": "App Secret of your Point.io application. See point.io/account for info.",
                             "dataType": "String",
 							"paramType": "query",
                             "required": true
