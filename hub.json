@@ -5,221 +5,514 @@
     "resourcePath": "/",
     "apis": [
         {
-            "path": "/storagesites/list.{format}",
+            "path":"/auth.{format}",
             "operations": [
                 {
-                    "summary": "To get a list of your hubs in your account",
-                    "httpMethod": "GET",
-                    "nickname": "List_My_Hubs",
-                    "notes": "To get a list of your hubs in your account",
-  				"responseClass": "Result",
+                    "summary":"Authenticate to Point.io API",
+                    "httpMethod":"POST",
+                    "nickname":"Auth",
+                    "notes":"Connects to your Point.io account and gives you your SESSIONKEY value to perform other API calls. Also displays informations about your account.",
+                    "responseClass": "Result",
                     "parameters": [
                         {
-                            "name": "Authorization",
-                            "description": "Your Point.io Session Key",
-                            "dataType": "String",
-                            "paramType": "header",
-                            "required": "true"
-                        }
-                    ]
-                }
-            ]
-        },
-		{
-            "path": "/shareables/{shareableid}.{format}",
-            "operations": [
-                {
-                    "summary": "To get a list of activity from a specific hub in your account",
-                    "httpMethod": "GET",
-                    "nickname": "Get_Hub_Activity",
-                    "notes": "To get a list of activity from a specific hub in your account",
-					"responseClass": "Result",
-                    "parameters": [
-                        {
-                            "name": "Authorization",
-                            "description": "Your Point.io Session Key",
-                            "dataType": "String",
-                            "paramType": "header",
-                            "required": "true"
+                            "name":"email",
+                            "description":"Your Point.io account email address.",
+                            "dataType":"String",
+                            "paramType":"query",
+                            "required":true
                         },
-						{
-                            "name": "RoomId",
-                            "description": "RoomId of your Hub",
-                            "dataType": "String",
-                            "paramType": "query",
-                            "required": "true"
+                        {
+                            "name":"password",
+                            "description":"Your Point.io account password.",
+                            "dataType":"String",
+                            "paramType":"query",
+                            "required":true
+                        },
+                        {
+                            "name":"apikey",
+                            "description":"App ID of your Point.io application. See point.io/account for info.",
+                            "dataType":"String",
+                            "paramType":"query",
+                            "required":true
                         }
                     ]
                 }
             ]
         },
         {
-            "path": "/shareables/create.{format}",
+            "path": "/hubs/create.{format}",
             "operations": [
                 {
-                    "summary": "To create (deploy) a new hub",
+                    "summary": "Create (deploy) a new hub",
                     "httpMethod": "POST",
-                    "nickname": "Create_New_Hub",
-                    "notes": "To create (deploy) a new hub using the API. When you deploy a new hub, there will be no shared files or invited users by default. You will then need to share files and add your users. ",
+                    "nickname": "Hubs_Create",
+                    "notes": "Creates (deploys) a new hub. When you deploy a new hub, there will be no shared files or invited users by default. You will then need to share files and add your users. ",
                     "parameters": [
                         {
                             "name": "Authorization",
-                            "description": "Your Point.io Session Key",
+                            "description": "SESSIONKEY value provided by the /auth.json method.",
                             "dataType": "String",
 							"paramType": "header",
-                            "required": "true"
+                            "required": true
                         },
 						{
                             "name": "roomName",
                             "description": "Friendly name for your hub",
                             "dataType": "String",
 							"paramType": "query",
-                            "required": "true"
+                            "required": true
                         },
-						{
+                        {
+                            "name": "enabled",
+                            "description": "Whether the hub is enabled for use",
+                            "dataType": "numeric",
+                            "paramType": "query",
+                            "required": false
+                        },
+                        {
                             "name": "description",
                             "description": "Description of the hub",
                             "dataType": "String",
 							"paramType": "query",
-                            "required": "true"
-                        },
-						{
-                            "name": "enabled",
-                            "description": "Whether the hub is enabled for use",
-                            "dataType": "Numeric (0 or 1)",
-							"paramType": "query",
-                            "required": "false"
+                            "required": true
                         },
 						{
                             "name": "roomIcon",
-                            "description": "URL to a 29x29 pixel jpg or png image to use as the hub icon",
+                            "description": "URL to a 29x29 pixel jpg or png image to use as the hub icon. Default is no image.",
                             "dataType": "String",
 							"paramType": "query",
-                            "required": "false"
+                            "required": false
                         },
 						{
                             "name": "mappedUrl",
-                            "description": "Custom URL (which hosts custom embed code) where this Hub can be accessed",
+                            "description": "Custom URL (which hosts custom embed code) where this Hub can be accessed. Default is no URL.",
                             "dataType": "String",
 							"paramType": "query",
-                            "required": "false"
+                            "required": false
                         },
 						{
                             "name": "maxusers",
                             "description": "The enforced limit of members for this hub. Default is unlimited",
-                            "dataType": "Numeric",
+                            "dataType": "String",
 							"paramType": "query",
-                            "required": "false"
+                            "required": false
+                        },
+                        {
+                            "name": "hideusers",
+                            "description": "??? User names hidden ???. Default is 0",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": false
                         },
 						{
                             "name": "expirationdate",
-                            "description": "Expiration date for the hub",
-                            "dataType": "ODBC Date string",
+                            "description": "Expiration date for the hub. Default is no expiration date",
+                            "dataType": "String",
 							"paramType": "query",
-                            "required": "false"
+                            "required": false
+                        },
+                        {
+                            "name": "visibleTabs",
+                            "description": "???. Default is HOME,SHARING,FILES,ACTIVITY",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": false
                         }
                     ]
                 }
             ]
         },
         {
-            "path": "/shareables/{shareableid}/folders/{folderid}.{format}",
+            "path": "/hubs/list.{format}",
             "operations": [
                 {
-                    "summary": "To add shared files to a hub",
-                    "httpMethod": "POST ",
-                    "nickname": "Add_Shared_Files",
-                    "notes": "To add shared files to a hub using the API",
-                    "parameters": [
-                        {
-                            "name": "Authorization",
-                            "description": "Your Point.io Session Key",
-                            "dataType": "String",
-							"paramType": "header",
-                            "required": "true"
-                        },
-                        {
-                            "name": "shareId",
-                            "description": "shareID of the access rule you want to had to your hub",
-                            "dataType": "String",
-							"paramType": "query",
-                            "required": "true"
-                        },
-						{
-                            "name": "shareName",
-                            "description": "Friendly label for the file shares to be displayed in the hub",
-                            "dataType": "String",
-							"paramType": "query",
-                            "required": "true"
-                        },
-						{
-                            "name": "enabled",
-                            "description": "Whether the hub is enabled for use",
-                            "dataType": "Numeric (0 or 1)",
-							"paramType": "query",
-                            "required": "false"
-                        },
-						{
-                            "name": "defaultRole",
-                            "description": "Specify a custom role that users will use to interact with files. Leave blank to use the default security defined in the access rule",
-                            "dataType": "String",
-							"paramType": "query",
-                            "required": "false"
-                        },
-						{
-                            "name": "chroot",
-                            "description": "The initial directory to share files from. Defaults to the root directory '/'",
-                            "dataType": "String",
-							"paramType": "query",
-                            "required": "true"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "path": "/shareables/{shareableid}/users/{userid}.{format}",
-            "operations": [
-                {
-                    "summary": "To add a user to a hub",
-                    "httpMethod": "POST",
-                    "nickname": "Add_User_To_Hub",
-                    "notes": "To add a user to a hub using the API",
-                    "parameters": [
-                        {
-                            "name": "Authorization",
-                            "description": "Your Point.io Session Key",
-                            "dataType": "String",
-							"paramType": "header",
-                            "required": "true"
-                        },
-						{
-                            "name": "email",
-                            "description": "Email address of the user to add to the hub",
-                            "dataType": "String",
-							"paramType": "query",
-                            "required": "true"
-                        }
-                    ]
-                }
-            ]
-        },        
-        {
-            "path": "/shareables.{format}",
-            "operations": [
-                {
-                    "summary": "To list shares in a hub",
-                    "httpMethod": "POST ",
-                    "nickname": "List_Shares_In_Hub",
-                    "notes": "To list shares in a hub using the API",
+                    "summary": "Get a list of the hubs connected to your account",
+                    "httpMethod": "GET",
+                    "nickname": "Hubs_List",
+                    "notes": "Gets you the list of your account's hubs.",
                     "responseClass": "Result",
                     "parameters": [
                         {
                             "name": "Authorization",
-                            "description": "Your Point.io Session Key",
+                            "description": "SESSIONKEY value provided by the /auth.json method.",
                             "dataType": "String",
-							"paramType": "header",
-                            "required": "true"
+                            "paramType": "header",
+                            "required": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/hubs/{hubId}/activity/feed.{format}",
+            "operations": [
+                {
+                    "summary": "Give the activity feed of a specific hub.",
+                    "httpMethod": "GET",
+                    "nickname": "Hubs_Activity_Feed",
+                    "notes": "Displays the activity feed of this hub.",
+                    "responseClass": "Result",
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "description": "SESSIONKEY value provided by the /auth.json method.",
+                            "dataType": "String",
+                            "paramType": "header",
+                            "required": true
+                        },
+                        {
+                            "name": "hubId",
+                            "description": "Id of the hub. Use a HUBID provided by the /hubs/list.json method",
+                            "dataType": "String",
+                            "paramType": "path",
+                            "required": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/hubs/{hubId}/delete.{format}",
+            "operations": [
+                {
+                    "summary": "Delete a specific hub.",
+                    "httpMethod": "DELETE",
+                    "nickname": "Hubs_Delete",
+                    "notes": "Deletes this specific hub.",
+                    "responseClass": "Result",
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "description": "SESSIONKEY value provided by the /auth.json method.",
+                            "dataType": "String",
+                            "paramType": "header",
+                            "required": true
+                        },
+                        {
+                            "name": "hubId",
+                            "description": "Id of the hub. Use a HUBID provided by the /hubs/list.json method",
+                            "dataType": "String",
+                            "paramType": "path",
+                            "required": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/hubs/{hubId}/details.{format}",
+            "operations": [
+                {
+                    "summary": "Get details about a specific hub.",
+                    "httpMethod": "GET",
+                    "nickname": "Hubs_Details",
+                    "notes": "Displays details about the hub.",
+                    "responseClass": "Result",
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "description": "SESSIONKEY value provided by the /auth.json method.",
+                            "dataType": "String",
+                            "paramType": "header",
+                            "required": true
+                        },
+                        {
+                            "name": "hubId",
+                            "description": "Id of the hub. Use a HUBID provided by the /hubs/list.json method",
+                            "dataType": "String",
+                            "paramType": "path",
+                            "required": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/hubs/{hubId}/folders/list.{format}",
+            "operations": [
+                {
+                    "summary": "Get the list of folders and files of a specific fipath from a specific hub.",
+                    "httpMethod": "GET",
+                    "nickname": "Hubs_Folders_List",
+                    "notes": "Displays the list of folders and files in the chosen hub at the specified path and gives you details about those folders and files. You can use folders details to browse them as well.",
+                    "responseClass": "Result",
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "description": "SESSIONKEY value provided by the /auth.json method.",
+                            "dataType": "String",
+                            "paramType": "header",
+                            "required": true
+                        },
+                        {
+                            "name": "hubId",
+                            "description": "Id of the hub. Use a HUBID provided by the /hubs/list.json method.",
+                            "dataType": "String",
+                            "paramType": "path",
+                            "required": true
+                        },
+                        {
+                            "name": "folderid",
+                            "description": "Id of the access rule you want to browse. Use a SHAREID from /accessrules/list.json to identify the access rule.",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": true
+                        },
+                        {
+                            "name": "containerid",
+                            "description": "Id of the folder you want to browse. If not filled, the default selected folder will be the root directory of the hub.",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": false
+                        },
+                        {
+                            "name": "path",
+                            "description": "Requested folder path for file listing. Use / for root directory (default).",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/hubs/{hubId}/shares/list.{format}",
+            "operations": [
+                {
+                    "summary": "add a share to a specific hub.",
+                    "httpMethod": "POST",
+                    "nickname": "Hubs_Shares_Add",
+                    "notes": "adds the shares to this specific hub.",
+                    "responseClass": "Result",
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "description": "SESSIONKEY value provided by the /auth.json method.",
+                            "dataType": "String",
+                            "paramType": "header",
+                            "required": true
+                        },
+                        {
+                            "name": "hubId",
+                            "description": "Id of the hub. Use a HUBID provided by the /hubs/list.json method",
+                            "dataType": "String",
+                            "paramType": "path",
+                            "required": true
+                        },
+                        {
+                            "name": "shareId",
+                            "description": "",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": true
+                        },
+                        {
+                            "name": "shareName",
+                            "description": "",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": true
+                        },
+                        {
+                            "name": "enabled",
+                            "description": "Default is 1.",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": true
+                        },
+                        {
+                            "name": "defaultRole",
+                            "description": "",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": true
+                        },
+                        {
+                            "name": "chroot",
+                            "description": "",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": true
+                        },
+                        {
+                            "name": "showFilter",
+                            "description": "",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": true
+                        },
+                        {
+                            "name": "hideFilter",
+                            "description": "",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/hubs/{hubId}/shares/list.{format}",
+            "operations": [
+                {
+                    "summary": "Get the list of shares for a specific hub.",
+                    "httpMethod": "GET",
+                    "nickname": "Hubs_Shares_List",
+                    "notes": "Lists the shares of this specific hub.",
+                    "responseClass": "Result",
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "description": "SESSIONKEY value provided by the /auth.json method.",
+                            "dataType": "String",
+                            "paramType": "header",
+                            "required": true
+                        },
+                        {
+                            "name": "hubId",
+                            "description": "Id of the hub. Use a HUBID provided by the /hubs/list.json method",
+                            "dataType": "String",
+                            "paramType": "path",
+                            "required": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/hubs/{hubId}/shares/remove.{format}",
+            "operations": [
+                {
+                    "summary": "Remove a share from a specific hub.",
+                    "httpMethod": "Deletes",
+                    "nickname": "Hubs_Shares_Remove",
+                    "notes": "Removes a share from a specific hub.",
+                    "responseClass": "Result",
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "description": "SESSIONKEY value provided by the /auth.json method.",
+                            "dataType": "String",
+                            "paramType": "header",
+                            "required": true
+                        },
+                        {
+                            "name": "hubId",
+                            "description": "Id of the hub. Use a HUBID provided by the /hubs/list.json method",
+                            "dataType": "String",
+                            "paramType": "path",
+                            "required": true
+                        },
+                        {
+                            "name": "roomShareId",
+                            "description": "Id of the share. Use a ROOMSHAREID provided by the /hubs/{hubId}/shares/list.json method",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/hubs/{hubId}/users/add.{format}",
+            "operations": [
+                {
+                    "summary": "Add a user to a specific hub.",
+                    "httpMethod": "POST",
+                    "nickname": "Hubs_Users_Remove",
+                    "notes": "Gives access to this hub to a user.",
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "description": "SESSIONKEY value provided by the /auth.json method.",
+                            "dataType": "String",
+                            "paramType": "header",
+                            "required": true
+                        },
+                        {
+                            "name": "hubId",
+                            "description": "Id of the hub. Use a HUBID provided by the /hubs/list.json method",
+                            "dataType": "String",
+                            "paramType": "path",
+                            "required": true
+                        },
+                        {
+                            "name": "email",
+                            "description": "Email address of the user you want to add.",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": true
+                        }
+                    ]
+                }
+            ]
+        }, 
+        {
+            "path": "/hubs/{hubId}/users/list.{format}",
+            "operations": [
+                {
+                    "summary": "Get the list of a specific hub's users.",
+                    "httpMethod": "GET",
+                    "nickname": "Hubs_Users_List",
+                    "notes": "Gives the list of users who have access to the hub.",
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "description": "SESSIONKEY value provided by the /auth.json method.",
+                            "dataType": "String",
+                            "paramType": "header",
+                            "required": true
+                        },
+                        {
+                            "name": "hubId",
+                            "description": "Id of the hub. Use a HUBID provided by the /hubs/list.json method",
+                            "dataType": "String",
+                            "paramType": "path",
+                            "required": true
+                        },
+                        {
+                            "name": "hideusers",
+                            "description": "Id of the user to remove. Use a USERID provided by the /hubs/{hubId}/users/list.json method",
+                            "dataType": "boolean",
+                            "paramType": "query",
+                            "required": true
+                        }
+                    ]
+                }
+            ]
+        }, 
+        {
+            "path": "/hubs/{hubId}/users/remove.{format}",
+            "operations": [
+                {
+                    "summary": "Remove a user's access from a hub.",
+                    "httpMethod": "DELETE",
+                    "nickname": "Hubs_Users_Remove",
+                    "notes": "Removes one of the hub users' access to it.",
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "description": "SESSIONKEY value provided by the /auth.json method.",
+                            "dataType": "String",
+                            "paramType": "header",
+                            "required": true
+                        },
+                        {
+                            "name": "hubId",
+                            "description": "Id of the hub. Use a HUBID provided by the /hubs/list.json method",
+                            "dataType": "String",
+                            "paramType": "path",
+                            "required": true
+                        },
+                        {
+                            "name": "userId",
+                            "description": "Id of the user to remove. Use a USERID provided by the /hubs/{hubId}/users/list.json method",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": true
                         }
                     ]
                 }
