@@ -55,6 +55,13 @@
 							"paramType": "header",
                             "required": true
                         },
+                        {
+                            "name": "sessionKey",
+                            "description": "SESSIONKEY value provided by the /auth.json method.",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": true
+                        },
 						{
                             "name": "roomName",
                             "description": "Friendly name for your hub",
@@ -67,6 +74,7 @@
                             "description": "Whether the hub is enabled for use",
                             "dataType": "numeric",
                             "paramType": "query",
+                            "allowableValues":{"valueType":"\"LIST\"","values":[0,1]},
                             "required": false
                         },
                         {
@@ -74,7 +82,7 @@
                             "description": "Description of the hub",
                             "dataType": "String",
 							"paramType": "query",
-                            "required": true
+                            "required": false
                         },
 						{
                             "name": "roomIcon",
