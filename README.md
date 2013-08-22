@@ -8,9 +8,9 @@ To do with hub.json:
 - check respons class of /auth in every .json
 - check HUBID returned by /hubs/list
 - in /hubs/create 
-  - Inconsistant sessionkey parameter was named Authorization in every core.json calls, or is it a second param?
-  - hideusers param. What is it about?
-  - visibleTabs. What is that?
+  - Description is required. Couldn't it be empty string by default?
+  - session key parameter (present in the Taffy) is not used, Authorization is as always. Should be removed from the Taffy.
+  - hideusers param Should be numeric [0,1] instead of String.
 - in /hubs/{hubId}/users/list
   - hideusers is boolean but was string in /hubs/create$
 - in /hubs/{hubId}/shares/remove
