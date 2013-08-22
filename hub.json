@@ -180,6 +180,41 @@
             ]
         },
         {
+            "path":"/hubs/{hubId}/auth.{format}",
+            "operations": [
+                {
+                    "summary":"Authenticate to one hub you deployed or you have been invited to.",
+                    "httpMethod":"POST",
+                    "nickname":"Hubs_Auth",
+                    "notes":"Connects to one of the hubs you have deployed or been invited to. Gives you something?.",
+                    "responseClass": "Result",
+                    "parameters": [
+                        {
+                            "name":"hubId",
+                            "description":"Hub ID of the hub you want to connect to. Use a HUBID provided by the /hubs/list.json method.",
+                            "dataType":"String",
+                            "paramType":"query",
+                            "required":true
+                        },
+                        {
+                            "name":"email",
+                            "description":"Your Point.io account email address.",
+                            "dataType":"String",
+                            "paramType":"query",
+                            "required":true
+                        },
+                        {
+                            "name":"password",
+                            "description":"Your Point.io account password.",
+                            "dataType":"String",
+                            "paramType":"query",
+                            "required":true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "path": "/hubs/{hubId}/delete.{format}",
             "operations": [
                 {
@@ -285,13 +320,13 @@
             ]
         },
         {
-            "path": "/hubs/{hubId}/shares/list.{format}",
+            "path": "/hubs/{hubId}/shares/add.{format}",
             "operations": [
                 {
-                    "summary": "add a share to a specific hub.",
+                    "summary": "Add a share to a specific hub.",
                     "httpMethod": "POST",
                     "nickname": "Hubs_Shares_Add",
-                    "notes": "adds the shares to this specific hub.",
+                    "notes": "Adds the shares to this specific hub.",
                     "responseClass": "Result",
                     "parameters": [
                         {
