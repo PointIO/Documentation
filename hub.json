@@ -82,7 +82,7 @@
                             "description": "Description of the hub",
                             "dataType": "String",
 							"paramType": "query",
-                            "required": false
+                            "required": true
                         },
 						{
                             "name": "roomIcon",
@@ -107,7 +107,7 @@
                         },
                         {
                             "name": "hideusers",
-                            "description": "??? User names hidden ???. Default is 0",
+                            "description": "If set to 1, users will not be able to see the list of the other users of this hub. Default is 0",
                             "dataType": "String",
                             "paramType": "query",
                             "required": false
@@ -121,7 +121,7 @@
                         },
                         {
                             "name": "visibleTabs",
-                            "description": "???. Default is HOME,SHARING,FILES,ACTIVITY",
+                            "description": "The list of visible tabs to a hub user. Insert in this field the list of name of pages you want to have visible, separated by coma. Four pages exist: HOME,SHARING,FILES,ACTIVITY. Default is HOME,SHARING,FILES,ACTIVITY.",
                             "dataType": "String",
                             "paramType": "query",
                             "required": false
