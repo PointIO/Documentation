@@ -11,6 +11,8 @@ To do with hub.json:
   - Description is required. Couldn't it be empty string by default?
   - session key parameter (present in the Taffy) is not used, Authorization is as always. Should be removed from the Taffy.
   - hideusers param Should be numeric [0,1] instead of String.
+- in /hubs/list
+  - returned roomid is used as hubId for the other call. Change the name of the returned roomid in hubId in prod?
 - in /hubs/{hubId}/users/list
   - hideusers is boolean but was string in /hubs/create$
 - in /hubs/{hubId}/shares/remove
