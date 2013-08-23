@@ -323,7 +323,7 @@
             "path": "/hubs/{hubId}/shares/add.{format}",
             "operations": [
                 {
-                    "summary": "Add a share to a specific hub.",
+                    "summary": "Add a share to a specific hub from an access rule.",
                     "httpMethod": "POST",
                     "nickname": "Hubs_Shares_Add",
                     "notes": "Adds the shares to this specific hub.",
@@ -345,52 +345,53 @@
                         },
                         {
                             "name": "shareId",
-                            "description": "",
+                            "description": "Id of the access rule you want to share.",
                             "dataType": "String",
                             "paramType": "query",
                             "required": true
                         },
                         {
                             "name": "shareName",
-                            "description": "",
+                            "description": "Friendly name for the new share.",
                             "dataType": "String",
                             "paramType": "query",
                             "required": true
                         },
                         {
                             "name": "enabled",
-                            "description": "Default is 1.",
-                            "dataType": "String",
+                            "description": "Whether the share is enabled for use",
+                            "dataType": "numeric",
                             "paramType": "query",
-                            "required": true
+                            "allowableValues":{"valueType":"\"LIST\"","values":[0,1]},
+                            "required": false
                         },
                         {
                             "name": "defaultRole",
-                            "description": "",
+                            "description": "Select a default role (authorizations and constraints) for your new share among ADMIN, CONTENT CONTRIBUTOR, FULL CONTROL, REVIEW AND EDIT, USE FOLDER DEFAULTS, VIEW AND COMMENT.",
                             "dataType": "String",
                             "paramType": "query",
                             "required": true
                         },
                         {
                             "name": "chroot",
-                            "description": "",
+                            "description": "The path of the access rule the share's root will point to.",
                             "dataType": "String",
                             "paramType": "query",
                             "required": true
                         },
                         {
                             "name": "showFilter",
-                            "description": "",
+                            "description": "Filters to show.",
                             "dataType": "String",
                             "paramType": "query",
-                            "required": true
+                            "required": false
                         },
                         {
                             "name": "hideFilter",
-                            "description": "",
+                            "description": "Filters to hide.",
                             "dataType": "String",
                             "paramType": "query",
-                            "required": true
+                            "required": false
                         }
                     ]
                 }
@@ -429,7 +430,7 @@
             "operations": [
                 {
                     "summary": "Remove a share from a specific hub.",
-                    "httpMethod": "Deletes",
+                    "httpMethod": "Delete",
                     "nickname": "Hubs_Shares_Remove",
                     "notes": "Removes a share from a specific hub.",
                     "responseClass": "Result",
