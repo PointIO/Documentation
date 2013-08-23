@@ -518,7 +518,7 @@
                         },
                         {
                             "name": "hideusers",
-                            "description": "Id of the user to remove. Use a USERID provided by the /hubs/{hubId}/users/list.json method",
+                            "description": "If set to true, users will not be able to see the list of the other users of this hub. Default is true",
                             "dataType": "boolean",
                             "paramType": "query",
                             "required": true
