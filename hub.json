@@ -170,7 +170,7 @@
                         },
                         {
                             "name": "hubId",
-                            "description": "Id of the hub. Use a HUBID provided by the /hubs/list.json method",
+                            "description": "Id of the hub. Use a ROOMID provided by the /hubs/list.json method",
                             "dataType": "String",
                             "paramType": "path",
                             "required": true
@@ -191,7 +191,7 @@
                     "parameters": [
                         {
                             "name":"hubId",
-                            "description":"Hub ID of the hub you want to connect to. Use a HUBID provided by the /hubs/list.json method.",
+                            "description":"Hub ID of the hub you want to connect to. Use a ROOMID provided by the /hubs/list.json method.",
                             "dataType":"String",
                             "paramType":"query",
                             "required":true
@@ -233,7 +233,7 @@
                         },
                         {
                             "name": "hubId",
-                            "description": "Id of the hub. Use a HUBID provided by the /hubs/list.json method",
+                            "description": "Id of the hub. Use a ROOMID provided by the /hubs/list.json method",
                             "dataType": "String",
                             "paramType": "path",
                             "required": true
@@ -261,7 +261,7 @@
                         },
                         {
                             "name": "hubId",
-                            "description": "Id of the hub. Use a HUBID provided by the /hubs/list.json method",
+                            "description": "Id of the hub. Use a ROOMID provided by the /hubs/list.json method",
                             "dataType": "String",
                             "paramType": "path",
                             "required": true
@@ -289,7 +289,7 @@
                         },
                         {
                             "name": "hubId",
-                            "description": "Id of the hub. Use a HUBID provided by the /hubs/list.json method.",
+                            "description": "Id of the hub. Use a ROOMID provided by the /hubs/list.json method.",
                             "dataType": "String",
                             "paramType": "path",
                             "required": true
@@ -338,7 +338,7 @@
                         },
                         {
                             "name": "hubId",
-                            "description": "Id of the hub. Use a HUBID provided by the /hubs/list.json method",
+                            "description": "Id of the hub. Use a ROOMID provided by the /hubs/list.json method",
                             "dataType": "String",
                             "paramType": "path",
                             "required": true
@@ -415,7 +415,7 @@
                         },
                         {
                             "name": "hubId",
-                            "description": "Id of the hub. Use a HUBID provided by the /hubs/list.json method",
+                            "description": "Id of the hub. Use a ROOMID provided by the /hubs/list.json method",
                             "dataType": "String",
                             "paramType": "path",
                             "required": true
@@ -443,7 +443,7 @@
                         },
                         {
                             "name": "hubId",
-                            "description": "Id of the hub. Use a HUBID provided by the /hubs/list.json method",
+                            "description": "Id of the hub. Use a ROOMID provided by the /hubs/list.json method",
                             "dataType": "String",
                             "paramType": "path",
                             "required": true
@@ -477,7 +477,7 @@
                         },
                         {
                             "name": "hubId",
-                            "description": "Id of the hub. Use a HUBID provided by the /hubs/list.json method",
+                            "description": "Id of the hub. Use a ROOMID provided by the /hubs/list.json method",
                             "dataType": "String",
                             "paramType": "path",
                             "required": true
@@ -511,7 +511,7 @@
                         },
                         {
                             "name": "hubId",
-                            "description": "Id of the hub. Use a HUBID provided by the /hubs/list.json method",
+                            "description": "Id of the hub. Use a ROOMID provided by the /hubs/list.json method",
                             "dataType": "String",
                             "paramType": "path",
                             "required": true
@@ -545,7 +545,7 @@
                         },
                         {
                             "name": "hubId",
-                            "description": "Id of the hub. Use a HUBID provided by the /hubs/list.json method",
+                            "description": "Id of the hub. Use a ROOMID provided by the /hubs/list.json method",
                             "dataType": "String",
                             "paramType": "path",
                             "required": true
