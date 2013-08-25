@@ -47,19 +47,13 @@
                     "httpMethod": "POST",
                     "nickname": "Hubs_Create",
                     "notes": "Creates (deploys) a new hub. When you deploy a new hub, there will be no shared files or invited users by default. You will then need to share files and add your users. ",
+                    "responseClass": "Result",
                     "parameters": [
                         {
                             "name": "Authorization",
                             "description": "SESSIONKEY value provided by the /auth.json method.",
                             "dataType": "String",
 							"paramType": "header",
-                            "required": true
-                        },
-                        {
-                            "name": "sessionKey",
-                            "description": "SESSIONKEY value provided by the /auth.json method.",
-                            "dataType": "String",
-                            "paramType": "query",
                             "required": true
                         },
 						{
@@ -138,7 +132,7 @@
                     "httpMethod": "GET",
                     "nickname": "Hubs_List",
                     "notes": "Gets you the list of your account's hubs.",
-                    "responseClass": "Result",
+                    "responseClass": "VariableResult",
                     "parameters": [
                         {
                             "name": "Authorization",
@@ -159,7 +153,7 @@
                     "httpMethod": "GET",
                     "nickname": "Hubs_Activity_Feed",
                     "notes": "Displays the activity feed of this hub.",
-                    "responseClass": "Result",
+                    "responseClass": "VariableResult",
                     "parameters": [
                         {
                             "name": "Authorization",
@@ -222,7 +216,7 @@
                     "httpMethod": "DELETE",
                     "nickname": "Hubs_Delete",
                     "notes": "Deletes this specific hub.",
-                    "responseClass": "Result",
+                    "responseClass": "Error",
                     "parameters": [
                         {
                             "name": "Authorization",
@@ -250,7 +244,7 @@
                     "httpMethod": "GET",
                     "nickname": "Hubs_Details",
                     "notes": "Displays details about the hub.",
-                    "responseClass": "Result",
+                    "responseClass": "VariableResult",
                     "parameters": [
                         {
                             "name": "Authorization",
@@ -405,7 +399,7 @@
                     "httpMethod": "GET",
                     "nickname": "Hubs_Shares_List",
                     "notes": "Lists the shares of this specific hub.",
-                    "responseClass": "Result",
+                    "responseClass": "VariableResult",
                     "parameters": [
                         {
                             "name": "Authorization",
@@ -433,7 +427,7 @@
                     "httpMethod": "Delete",
                     "nickname": "Hubs_Shares_Remove",
                     "notes": "Removes a share from a specific hub.",
-                    "responseClass": "Result",
+                    "responseClass": "Error",
                     "parameters": [
                         {
                             "name": "Authorization",
