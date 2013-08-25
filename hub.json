@@ -272,7 +272,7 @@
                     "httpMethod": "GET",
                     "nickname": "Hubs_Folders_List",
                     "notes": "Displays the list of folders and files in the chosen hub at the specified path and gives you details about those folders and files. You can use folders details to browse them as well.",
-                    "responseClass": "Result",
+                    "responseClass": "VariableResult",
                     "parameters": [
                         {
                             "name": "Authorization",
@@ -321,7 +321,7 @@
                     "httpMethod": "POST",
                     "nickname": "Hubs_Shares_Add",
                     "notes": "Adds the shares to this specific hub.",
-                    "responseClass": "Result",
+                    "responseClass": "Error",
                     "parameters": [
                         {
                             "name": "Authorization",
@@ -339,7 +339,7 @@
                         },
                         {
                             "name": "shareId",
-                            "description": "Id of the access rule you want to share.",
+                            "description": "Id of the access rule you want to share. Use a SHAREID from /accessrules/list in core.json",
                             "dataType": "String",
                             "paramType": "query",
                             "required": true
@@ -353,7 +353,7 @@
                         },
                         {
                             "name": "enabled",
-                            "description": "Whether the share is enabled for use",
+                            "description": "Whether the share is enabled for use. Default is 1.",
                             "dataType": "numeric",
                             "paramType": "query",
                             "allowableValues":{"valueType":"\"LIST\"","values":[0,1]},
@@ -462,6 +462,7 @@
                     "httpMethod": "POST",
                     "nickname": "Hubs_Users_Remove",
                     "notes": "Gives access to this hub to a user.",
+                    "responseClass": "Error",
                     "parameters": [
                         {
                             "name": "Authorization",
@@ -496,6 +497,7 @@
                     "httpMethod": "GET",
                     "nickname": "Hubs_Users_List",
                     "notes": "Gives the list of users who have access to the hub.",
+                    "responseClass": "VariableResult",
                     "parameters": [
                         {
                             "name": "Authorization",
@@ -530,6 +532,7 @@
                     "httpMethod": "DELETE",
                     "nickname": "Hubs_Users_Remove",
                     "notes": "Removes one of the hub users' access to it.",
+                    "responseClass": "Error",
                     "parameters": [
                         {
                             "name": "Authorization",
