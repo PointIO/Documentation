@@ -7,6 +7,48 @@ To do in the code:
 - Hide passwords!
 
 To do with hub.json:
+- /auth
+  - ok
+- /accessrules/create
+  - couldn't manage to create an accessrule, no Error returned to help me. 
+- /accessrules/list
+  - ok
+- /accessrules/{accessruleid}/delete
+- /accessrules/{siteTypeId}/params
+- /folders/create
+- /folders/checkin
+- /folders/checkout
+- /folders/comments/create
+- /folders/comments/delete
+- /folders/comments/list
+- /folders/files/delete
+- /folders/files/download
+- /folders/files/edit
+- /folders/files/preview
+- /folders/files/rename
+- /folders/files/upload
+- /folders/files/uploadastext
+- /folders/list
+- /folders/{folderid}/getauthorizedembed
+- /links/create
+- /permissions/list
+  - ok
+- /storagesites/create
+  - still to test
+- /storagesites/list
+  - ok
+- /storagesites/{siteId}/details
+  - ok
+- /storagesites/{siteId}/delete
+  - ok
+- /storagesites/{siteId}/update
+  - ok
+- /storagetypes/list
+  - ok
+- /storagetypes/{siteTypeId}/params
+  - ok
+
+To do with hub.json:
 - check respons class of /auth in every .json
 - check HUBID returned by /hubs/list
 - in /hubs/create 
