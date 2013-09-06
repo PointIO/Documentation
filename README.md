@@ -6,47 +6,18 @@ To do in the code:
 - Why is /auth a post? Shouldn't it be a get as it contains a password?
 - Hide passwords!
 
-To do with hub.json:
-- /auth
-  - ok
+To do with core.json:
 - /accessrules/create
   - couldn't manage to create an accessrule, no Error returned to help me. 
-- /accessrules/list
-  - ok
-- /accessrules/{accessruleid}/delete
-- /accessrules/{siteTypeId}/params
-- /folders/create
-- /folders/checkin
-- /folders/checkout
-- /folders/comments/create
-- /folders/comments/delete
-- /folders/comments/list
-- /folders/files/delete
-- /folders/files/download
 - /folders/files/edit
-- /folders/files/preview
-- /folders/files/rename
+  - "ERROR - The parameter userId to function createEditToken is required but was not passed in."
 - /folders/files/upload
+  - stil don't get what's suppose to go in the filecontents.
 - /folders/files/uploadastext
-- /folders/list
+   - not uploading, no message returned. 
 - /folders/{folderid}/getauthorizedembed
-- /links/create
-- /permissions/list
-  - ok
 - /storagesites/create
-  - still to test
-- /storagesites/list
-  - ok
-- /storagesites/{siteId}/details
-  - ok
-- /storagesites/{siteId}/delete
-  - ok
-- /storagesites/{siteId}/update
-  - ok
-- /storagetypes/list
-  - ok
-- /storagetypes/{siteTypeId}/params
-  - ok
+  - trying to get a box or dropbox token
 
 To do with hub.json:
 - check respons class of /auth in every .json
