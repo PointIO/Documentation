@@ -9,6 +9,12 @@ To do in the code:
 To do with core.json:
 - /accessrules/create
   - couldn't manage to create an accessrule, no Error returned to help me. 
+- /links/list
+  - what are the two parmas in the Taffy for? Removing them from the doc for now.
+- /links/{linkid}/details
+  - what is the ipadddress param in the Taffy for? Removing it from the doc for now.
+  - Not giving details, no message returned.
+- Other links call to add ? delete, update?
 - /folders/files/edit
   - "ERROR - The parameter userId to function createEditToken is required but was not passed in."
 - /folders/files/upload
@@ -16,6 +22,7 @@ To do with core.json:
 - /folders/{folderid}/getauthorizedembed
 - /storagesites/create
   - trying to get a box or dropbox token
+
 
 To do with hub.json:
 - check respons class of /auth in every .json
