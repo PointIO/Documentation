@@ -13,8 +13,6 @@ To do with core.json:
   - "ERROR - The parameter userId to function createEditToken is required but was not passed in."
 - /folders/files/upload
   - stil don't get what's suppose to go in the filecontents.
-- /folders/files/uploadastext
-   - not uploading, no message returned. 
 - /folders/{folderid}/getauthorizedembed
 - /storagesites/create
   - trying to get a box or dropbox token
