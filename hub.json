@@ -375,14 +375,14 @@
                         },
                         {
                             "name":"filename",
-                            "description":"Name of the file to delete. Use FILENAME value provided from a /hubs/{hubId}/folders/list.json call.",
+                            "description":"Name of the file to download. Use FILENAME value provided from a /hubs/{hubId}/folders/list.json call.",
                             "dataType":"String",
                             "required":true,
                             "paramType":"query"
                         },
                         {
                             "name":"fileid",
-                            "description":"Id of the file to delete. Use FILEID value provided from a /hubs/{hubId}/folders/list.json call.",
+                            "description":"Id of the file to download. Use FILEID value provided from a /hubs/{hubId}/folders/list.json call.",
                             "dataType":"String",
                             "required":true,
                             "paramType":"query"
@@ -445,14 +445,14 @@
                         },
                         {
                             "name":"fileid",
-                            "description":"Id of the file to delete. Use FILEID value provided from a /hubs/{hubId}/folders/list.json call.",
+                            "description":"Id of the file to preview. Use FILEID value provided from a /hubs/{hubId}/folders/list.json call.",
                             "dataType":"String",
                             "required":true,
                             "paramType":"query"
                         },
                         {
                             "name":"filename",
-                            "description":"Name of the file to delete. Use FILENAME value provided from a /hubs/{hubId}/folders/list.json call.",
+                            "description":"Name of the file to preview. Use FILENAME value provided from a /hubs/{hubId}/folders/list.json call.",
                             "dataType":"String",
                             "required":true,
                             "paramType":"query"
@@ -529,14 +529,14 @@
                         },
                         {
                             "name":"filename",
-                            "description":"Name of the file to delete. Use FILENAME value provided from a /hubs/{hubId}/folders/list.json call.",
+                            "description":"Name of the file to update. Use FILENAME value provided from a /hubs/{hubId}/folders/list.json call.",
                             "dataType":"String",
                             "required":true,
                             "paramType":"query"
                         },
                         {
                             "name":"fileid",
-                            "description":"Id of the file to delete. Use FILEID value provided from a /hubs/{hubId}/folders/list.json call.",
+                            "description":"Id of the file to update. Use FILEID value provided from a /hubs/{hubId}/folders/list.json call.",
                             "dataType":"String",
                             "required":true,
                             "paramType":"query"
