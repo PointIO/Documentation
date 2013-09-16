@@ -266,7 +266,7 @@
             ]
         },
         {
-            "path": "/hubs/{hubId}/folders/file/delete.{format}",
+            "path": "/hubs/{hubId}/folders/files/delete.{format}",
             "operations": [
                 {
                     "summary": "Delete a file in a hu.",
@@ -329,7 +329,7 @@
             ]
         }, 
         {
-            "path": "/hubs/{hubId}/folders/file/download.{format}",
+            "path": "/hubs/{hubId}/folders/files/download.{format}",
             "operations": [
                 {
                     "summary": "Download a file from a hub.",
@@ -399,7 +399,7 @@
             ]
         },
         {
-            "path": "/hubs/{hubId}/folders/file/preview.{format}",
+            "path": "/hubs/{hubId}/folders/files/preview.{format}",
             "operations": [
                 {
                     "summary": "Get the preview of a file from a hub.",
@@ -444,15 +444,15 @@
                             "required": false
                         },
                         {
-                            "name":"filename",
-                            "description":"Name of the file to delete. Use FILENAME value provided from a /hubs/{hubId}/folders/list.json call.",
+                            "name":"fileid",
+                            "description":"Id of the file to delete. Use FILEID value provided from a /hubs/{hubId}/folders/list.json call.",
                             "dataType":"String",
                             "required":true,
                             "paramType":"query"
                         },
                         {
-                            "name":"fileid",
-                            "description":"Id of the file to delete. Use FILEID value provided from a /hubs/{hubId}/folders/list.json call.",
+                            "name":"filename",
+                            "description":"Name of the file to delete. Use FILENAME value provided from a /hubs/{hubId}/folders/list.json call.",
                             "dataType":"String",
                             "required":true,
                             "paramType":"query"
@@ -483,7 +483,7 @@
             ]
         },
         {
-            "path": "/hubs/{hubId}/folders/file/upload.{format}",
+            "path": "/hubs/{hubId}/folders/files/upload.{format}",
             "operations": [
                 {
                     "summary": "Upload a file to a hub.",
