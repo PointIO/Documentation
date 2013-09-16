@@ -73,10 +73,10 @@
                         },
                         {
                             "name": "description",
-                            "description": "Description of the hub",
+                            "description": "Description of the hub. Default is an empty String.",
                             "dataType": "String",
-							"paramType": "query",
-                            "required": true
+                            "paramType": "query",
+                            "required": false
                         },
 						{
                             "name": "roomIcon",
@@ -102,8 +102,9 @@
                         {
                             "name": "hideusers",
                             "description": "If set to 1, users will not be able to see the list of the other users of this hub. Default is 0",
-                            "dataType": "String",
+                            "dataType": "numeric",
                             "paramType": "query",
+                            "allowableValues":{"valueType":"\"LIST\"","values":[0,1]},
                             "required": false
                         },
 						{
