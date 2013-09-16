@@ -590,8 +590,8 @@
                             "required": true
                         },
                         {
-                            "name": "folderid",
-                            "description": "Id of the access rule you want to browse. Use a SHAREID from /accessrules/list.json to identify the access rule.",
+                            "name": "roomShareId",
+                            "description": "Id of the access rule you want to browse. Use a SHAREID from /hubs/{hubId}/folders/list.json to identify the access rule.",
                             "dataType": "String",
                             "paramType": "query",
                             "required": true
