@@ -27,6 +27,8 @@ To do with core.json:
 To do with hub.json:
 - in /hubs/list
   - returned roomid is used as hubId for the other call. Change the name of the returned roomid in hubId in prod?
+- in /hubs/{hubId}/folders/files/upload
+  - stil don't get what's suppose to go in the filecontents.
 - in /hubs/{hubId}/folders/list
   - verify from where the parameter comes from. folderid = room id or access rule id?
   - returns ERROR - getFileSharePermissions: Invalid shared folder, or you do not have access privileges.
@@ -37,7 +39,7 @@ To do with hub.json:
   - call returns   "MESSAGE": "ERROR - Error adding share to hub: email-smtp.us-east-1.amazonaws.com railo.runtime.exp.NativeException:501 Syntax: HELO <hostname>\n:0",
   - but the user is added.
 - in /hubs/{hubId}/users/list
-  - hideusers is boolean but was string in /hubs/create. See the comment on /hubs/create.
+  - hideusers is boolean but is numeric in /hubs/create. Change default to false in description!
   - call returns   "MESSAGE": "ERROR - key [ROOMID] doesn't exist in argument scope. existing keys are [hubId, hideusers]"
 - in /hubs/{hubId}/users/remove
   - can't test because can't get userid from /users/list
