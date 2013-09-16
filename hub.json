@@ -53,14 +53,14 @@
                             "name": "Authorization",
                             "description": "SESSIONKEY value provided by the /auth.json method.",
                             "dataType": "String",
-							"paramType": "header",
+                            "paramType": "header",
                             "required": true
                         },
-						{
+                        {
                             "name": "roomName",
                             "description": "Friendly name for your hub",
                             "dataType": "String",
-							"paramType": "query",
+                            "paramType": "query",
                             "required": true
                         },
                         {
@@ -78,25 +78,25 @@
                             "paramType": "query",
                             "required": false
                         },
-						{
+                        {
                             "name": "roomIcon",
                             "description": "URL to a 29x29 pixel jpg or png image to use as the hub icon. Default is no image.",
                             "dataType": "String",
-							"paramType": "query",
+                            "paramType": "query",
                             "required": false
                         },
-						{
+                        {
                             "name": "mappedUrl",
                             "description": "Custom URL (which hosts custom embed code) where this Hub can be accessed. Default is no URL.",
                             "dataType": "String",
-							"paramType": "query",
+                            "paramType": "query",
                             "required": false
                         },
-						{
+                        {
                             "name": "maxusers",
                             "description": "The enforced limit of members for this hub. Default is unlimited",
                             "dataType": "String",
-							"paramType": "query",
+                            "paramType": "query",
                             "required": false
                         },
                         {
@@ -107,11 +107,11 @@
                             "allowableValues":{"valueType":"\"LIST\"","values":[0,1]},
                             "required": false
                         },
-						{
+                        {
                             "name": "expirationdate",
                             "description": "Expiration date for the hub. Default is no expiration date",
                             "dataType": "String",
-							"paramType": "query",
+                            "paramType": "query",
                             "required": false
                         },
                         {
@@ -181,7 +181,7 @@
                     "summary":"Authenticate to one hub you deployed or you have been invited to.",
                     "httpMethod":"POST",
                     "nickname":"Hubs_Auth",
-                    "notes":"Connects to one of the hubs you have deployed or been invited to. Gives you something?.",
+                    "notes":"Connects to one of the hubs you have deployed or been invited to.",
                     "responseClass": "Result",
                     "parameters": [
                         {
@@ -266,10 +266,310 @@
             ]
         },
         {
+            "path": "/hubs/{hubId}/folders/file/delete.{format}",
+            "operations": [
+                {
+                    "summary": "Delete a file in a hu.",
+                    "httpMethod": "POST",
+                    "nickname": "Hubs_Folders_Files_Delete",
+                    "notes": "Deletes a file in the specidied hub, room and path.",
+                    "responseClass": "Error",
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "description": "SESSIONKEY value provided by the /auth.json method.",
+                            "dataType": "String",
+                            "paramType": "header",
+                            "required": true
+                        },
+                        {
+                            "name": "hubId",
+                            "description": "Id of the hub. Use a ROOMID provided by the /hubs/list.json method",
+                            "dataType": "String",
+                            "paramType": "path",
+                            "required": true
+                        },
+                        {
+                            "name": "roomShareId",
+                            "description": "Id of the share. Use a ROOMSHAREID provided by the /hubs/{hubId}/shares/list.json method",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": true
+                        },
+                        {
+                            "name": "containerid",
+                            "description": "Id of the folder you want to browse. If not filled, the default selected folder will be the root directory of the hub.",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": false
+                        },
+                        {
+                            "name": "remotepath",
+                            "description": "Requested folder path for file listing. Use / for root directory (default).",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": false
+                        },
+                        {
+                            "name":"filename",
+                            "description":"Name of the file to delete. Use FILENAME value provided from a /hubs/{hubId}/folders/list.json call.",
+                            "dataType":"String",
+                            "required":true,
+                            "paramType":"query"
+                        },
+                        {
+                            "name":"fileid",
+                            "description":"Id of the file to delete. Use FILEID value provided from a /hubs/{hubId}/folders/list.json call.",
+                            "dataType":"String",
+                            "required":true,
+                            "paramType":"query"
+                        }
+                    ]
+                }
+            ]
+        }, 
+        {
+            "path": "/hubs/{hubId}/folders/file/download.{format}",
+            "operations": [
+                {
+                    "summary": "Download a file from a hub.",
+                    "httpMethod": "GET",
+                    "nickname": "Hubs_Folders_Files_Download",
+                    "notes": "Downloads a file from the specidied hub, room and path.",
+                    "responseClass": "Result",
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "description": "SESSIONKEY value provided by the /auth.json method.",
+                            "dataType": "String",
+                            "paramType": "header",
+                            "required": true
+                        },
+                        {
+                            "name": "hubId",
+                            "description": "Id of the hub. Use a ROOMID provided by the /hubs/list.json method",
+                            "dataType": "String",
+                            "paramType": "path",
+                            "required": true
+                        },
+                        {
+                            "name": "roomShareId",
+                            "description": "Id of the share. Use a ROOMSHAREID provided by the /hubs/{hubId}/shares/list.json method",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": true
+                        },
+                        {
+                            "name": "containerid",
+                            "description": "Id of the folder you want to browse. If not filled, the default selected folder will be the root directory of the hub.",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": false
+                        },
+                        {
+                            "name": "remotepath",
+                            "description": "Requested folder path for file listing. Use / for root directory (default).",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": false
+                        },
+                        {
+                            "name":"filename",
+                            "description":"Name of the file to delete. Use FILENAME value provided from a /hubs/{hubId}/folders/list.json call.",
+                            "dataType":"String",
+                            "required":true,
+                            "paramType":"query"
+                        },
+                        {
+                            "name":"fileid",
+                            "description":"Id of the file to delete. Use FILEID value provided from a /hubs/{hubId}/folders/list.json call.",
+                            "dataType":"String",
+                            "required":true,
+                            "paramType":"query"
+                        },
+                        {
+                            "name":"convertToPdf",
+                            "description":"Does the file has to be converted to pdf format? False by default.",
+                            "dataType":"boolean",
+                            "required":false,
+                            "paramType":"query"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/hubs/{hubId}/folders/file/preview.{format}",
+            "operations": [
+                {
+                    "summary": "Get the preview of a file from a hub.",
+                    "httpMethod": "GET",
+                    "nickname": "Hubs_Folders_Files_Delete",
+                    "notes": "Gets the preview of a file from a specified hub, room and path.",
+                    "responseClass": "Result",
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "description": "SESSIONKEY value provided by the /auth.json method.",
+                            "dataType": "String",
+                            "paramType": "header",
+                            "required": true
+                        },
+                        {
+                            "name": "hubId",
+                            "description": "Id of the hub. Use a ROOMID provided by the /hubs/list.json method",
+                            "dataType": "String",
+                            "paramType": "path",
+                            "required": true
+                        },
+                        {
+                            "name": "roomShareId",
+                            "description": "Id of the share. Use a ROOMSHAREID provided by the /hubs/{hubId}/shares/list.json method",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": true
+                        },
+                        {
+                            "name": "containerid",
+                            "description": "Id of the folder you want to browse. If not filled, the default selected folder will be the root directory of the hub.",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": false
+                        },
+                        {
+                            "name": "remotepath",
+                            "description": "Requested folder path for file listing. Use / for root directory (default).",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": false
+                        },
+                        {
+                            "name":"filename",
+                            "description":"Name of the file to delete. Use FILENAME value provided from a /hubs/{hubId}/folders/list.json call.",
+                            "dataType":"String",
+                            "required":true,
+                            "paramType":"query"
+                        },
+                        {
+                            "name":"fileid",
+                            "description":"Id of the file to delete. Use FILEID value provided from a /hubs/{hubId}/folders/list.json call.",
+                            "dataType":"String",
+                            "required":true,
+                            "paramType":"query"
+                        },
+                        {
+                            "name":"maxWidth",
+                            "description":"The desired width, in pixels, of the embedded window for the preview session. Default 1024px.",
+                            "dataType":"numeric",
+                            "required":false,
+                            "paramType":"query"
+                        },
+                        {
+                            "name":"maxHeight",
+                            "description":"The desired height, in pixels, of the embedded window for the preview session. Default 768px.",
+                            "dataType":"numeric",
+                            "required":false,
+                            "paramType":"query"
+                        },
+                        {
+                            "name":"pagenum",
+                            "description":"The number of the page shown at the beginning of the preview session. Default: '1'",
+                            "dataType":"String",
+                            "required":false,
+                            "paramType":"query"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "path": "/hubs/{hubId}/folders/file/upload.{format}",
+            "operations": [
+                {
+                    "summary": "Upload a file to a hub.",
+                    "httpMethod": "POST",
+                    "nickname": "Hubs_Folders_Files_Upload",
+                    "notes": "Uploads the a file to a specified hub, room and path.",
+                    "responseClass": "Result",
+                    "parameters": [
+                        {
+                            "name": "Authorization",
+                            "description": "SESSIONKEY value provided by the /auth.json method.",
+                            "dataType": "String",
+                            "paramType": "header",
+                            "required": true
+                        },
+                        {
+                            "name": "hubId",
+                            "description": "Id of the hub. Use a ROOMID provided by the /hubs/list.json method",
+                            "dataType": "String",
+                            "paramType": "path",
+                            "required": true
+                        },
+                        {
+                            "name": "roomShareId",
+                            "description": "Id of the share. Use a ROOMSHAREID provided by the /hubs/{hubId}/shares/list.json method",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": true
+                        },
+                        {
+                            "name": "containerid",
+                            "description": "Id of the folder you want to browse. If not filled, the default selected folder will be the root directory of the hub.",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": false
+                        },
+                        {
+                            "name": "remotepath",
+                            "description": "Requested folder path for file listing. Use / for root directory (default).",
+                            "dataType": "String",
+                            "paramType": "query",
+                            "required": false
+                        },
+                        {
+                            "name":"filename",
+                            "description":"Name of the file to delete. Use FILENAME value provided from a /hubs/{hubId}/folders/list.json call.",
+                            "dataType":"String",
+                            "required":true,
+                            "paramType":"query"
+                        },
+                        {
+                            "name":"fileid",
+                            "description":"Id of the file to delete. Use FILEID value provided from a /hubs/{hubId}/folders/list.json call.",
+                            "dataType":"String",
+                            "required":true,
+                            "paramType":"query"
+                        },
+                        {
+                            "name":"filecontents",
+                            "description":"An RFC1867 file upload. Your upload should be ENCTYPE=multipart/form-data encoded. Refer to RFC1867 for reference.",
+                            "dataType":"String",
+                            "required":true,
+                            "paramType":"query"
+                        },
+                        {
+                            "name":"failIfExists",
+                            "description":"Boolean (false or false). Default is false. If enabled (false), uploads will fail if the file already exists. If disabled, the original file will be overwritten. If revision control is enabled, the original file will be stored as a revision level.",
+                            "dataType":"boolean",
+                            "required":false,
+                            "paramType":"query"
+                        },{
+                            "name":"postAuthKey",
+                            "description":"default: empty String",
+                            "dataType":"String",
+                            "required":false,
+                            "paramType":"query"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "path": "/hubs/{hubId}/folders/list.{format}",
             "operations": [
                 {
-                    "summary": "Get the list of folders and files of a specific fipath from a specific hub.",
+                    "summary": "Get the list of folders and files of a specific path from a specific hub.",
                     "httpMethod": "GET",
                     "nickname": "Hubs_Folders_List",
                     "notes": "Displays the list of folders and files in the chosen hub at the specified path and gives you details about those folders and files. You can use folders details to browse them as well.",
@@ -308,7 +608,7 @@
                             "description": "Requested folder path for file listing. Use / for root directory (default).",
                             "dataType": "String",
                             "paramType": "query",
-                            "required": true
+                            "required": false
                         }
                     ]
                 }
@@ -562,64 +862,64 @@
         }
     ],
     "models": {
-    	"Result":{
-			"properties": {
-			  "ERROR": {
-				"type": "int",
-				"description": "1 for Error, 0 for success"
-			  },
-			  "MESSAGE": {
-				"type": "string",
-				"description": "If an error occured, this will be provided with a description of the error"
-			  },
-			  "RESULT": {
-				"type": "string"
-			  }
-		  	},
-		  	"id": "Result"
-    	},
-    	"Error":{
-			"properties": {
-			  "ERROR": {
-				"type": "int",
-				"description": "1 for Error, 0 for success"
-			  },
-			  "MESSAGE": {
-				"type": "string",
-				"description": "If an error occured, this will be provided with a description of the error"
-			  }
-		  	},
-		  	"id": "Error"
-    	},
-    	"VariableResult":{
-			"properties": {
-			  "ERROR": {
-				"type": "int",
-				"description": "1 for Error, 0 for success"
-			  },
-			  "MESSAGE": {
-				"type": "string",
-				"description": "If an error occured, this will be provided with a description of the error"
-			  },
-			  "RESULT": {
-				"type": "ColData"
-			  }
-		  	},
-		  	"id": "VariableResult"
-    	},
-    	"ColData":{
-			"properties": {
-			  "COLUMNS": {
-				"type": "List",
-				"description": "An Array of strings containing labels for RESULT.DATA array indices"
-			  },
-			  "DATA": {
-				"type": "List",
-				"description": "A List of Lists containing data fields. The data field labels are described in RESULT.COLUMNS."
-			  }
-		  	},
-		  	"id": "ColData"
-    	}
+        "Result":{
+            "properties": {
+              "ERROR": {
+                "type": "int",
+                "description": "1 for Error, 0 for success"
+              },
+              "MESSAGE": {
+                "type": "string",
+                "description": "If an error occured, this will be provided with a description of the error"
+              },
+              "RESULT": {
+                "type": "string"
+              }
+            },
+            "id": "Result"
+        },
+        "Error":{
+            "properties": {
+              "ERROR": {
+                "type": "int",
+                "description": "1 for Error, 0 for success"
+              },
+              "MESSAGE": {
+                "type": "string",
+                "description": "If an error occured, this will be provided with a description of the error"
+              }
+            },
+            "id": "Error"
+        },
+        "VariableResult":{
+            "properties": {
+              "ERROR": {
+                "type": "int",
+                "description": "1 for Error, 0 for success"
+              },
+              "MESSAGE": {
+                "type": "string",
+                "description": "If an error occured, this will be provided with a description of the error"
+              },
+              "RESULT": {
+                "type": "ColData"
+              }
+            },
+            "id": "VariableResult"
+        },
+        "ColData":{
+            "properties": {
+              "COLUMNS": {
+                "type": "List",
+                "description": "An Array of strings containing labels for RESULT.DATA array indices"
+              },
+              "DATA": {
+                "type": "List",
+                "description": "A List of Lists containing data fields. The data field labels are described in RESULT.COLUMNS."
+              }
+            },
+            "id": "ColData"
+        }
     }
 }
 
