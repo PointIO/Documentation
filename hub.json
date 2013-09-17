@@ -662,9 +662,10 @@
                         },
                         {
                             "name": "defaultRole",
-                            "description": "Select a default role (authorizations and constraints) for your new share among ADMIN, CONTENT CONTRIBUTOR, FULL CONTROL, REVIEW AND EDIT, USE FOLDER DEFAULTS, VIEW AND COMMENT.",
+                            "description": "Select a default role (authorizations and constraints) for your new share.",
                             "dataType": "String",
                             "paramType": "query",
+                            "allowableValues":{"valueType":"\"LIST\"","values":["ADMIN", "CONTENT CONTRIBUTOR", "FULL CONTROL", "REVIEW AND EDIT", "USE FOLDER DEFAULTS", "VIEW AND COMMENT"]},
                             "required": true
                         },
                         {
