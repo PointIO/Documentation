@@ -10,6 +10,8 @@ To do with core.json:
 
 - /v2/auth
   - ok
+- /v2/ping
+  - ok, but had to add a useless parameter 
 - /v2/sessionauth
   - Postman : "MESSAGE": "Session validation failure -- access denied","ERROR": 1
 - /v2/folders/files/checkin
