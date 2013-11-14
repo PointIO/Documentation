@@ -38,20 +38,31 @@ To do with core.json:
   - siteArgument = {"USERNAME":"tpanagos","DOMAIN":"SPH","DEFAULTCHROOT":"/","HOSTURL":"http://pointio.sharepoint99.com","PASSWORD":"$hare12"}
   - Add an exemple for all calls using struct stuff.
 - /v2/storagesites/list
+  - ok
 - /v2/storagesites/{siteId}/delete
+  - ok
 - /v2/storagesites/{siteId}/update
+  - ok
 - /v2/accessrules/{sitetypeid}/params
+  - ok
 - /v2/accessrules/{accesruleid}/info
+  - not present in the Taffy
 - /v2/accessrules/create
   - couldn't manage to create an accessrule, no Error returned to help me.
 - /v2/accessrules/{accessruleid}/delete
+  - ok
 - /v2/accessrules/list
+  - ok
 - /v2/folders/create
+  - ok
 - /v2/folders/info
+  - not present in Taffy
 - /v2/folders/delete
+  - ok
 - /v2/folders/list
+  - ok
 - /v2/folders/files/upload
-  - stil don't get what's suppose to go in the filecontents.
+  - still don't get what's suppose to go in the filecontents.
 - /v2/folders/files/uploadastext
 - /v2/folders/files/download
 - /v2/folders/files/copy
