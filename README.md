@@ -13,7 +13,7 @@ To do with core.json:
 - /v2/ping
   - ok, but had to add a useless parameter 
 - /v2/sessionauth
-  - Postman : "MESSAGE": "Session validation failure -- access denied","ERROR": 1
+  - ok
 - /v2/folders/files/checkin
   - ok
 - /v2/folders/files/checkout
@@ -21,9 +21,7 @@ To do with core.json:
 - /v2/folders/{folderid}/embed
   - DEPRECATED
 - /v2/folders/{folderid}/getauthorizedembed
-  - DEPRECATED so removed
-- /v2/ping
-  - ok on postman
+  - DEPRECATED
 - /v2/permissions/list
   - ok
 - /v2/storagetypes/list
@@ -36,7 +34,7 @@ To do with core.json:
   - ok
 - /v2/storagesites/testconnection
   - siteArgument = {"USERNAME":"tpanagos","DOMAIN":"SPH","DEFAULTCHROOT":"/","HOSTURL":"http://pointio.sharepoint99.com","PASSWORD":"$hare12"}
-  - Add an exemple for all calls using struct stuff.
+  - ok
 - /v2/storagesites/list
   - ok
 - /v2/storagesites/{siteId}/delete
@@ -64,37 +62,62 @@ To do with core.json:
 - /v2/folders/files/upload
   - still don't get what's suppose to go in the filecontents.
 - /v2/folders/files/uploadastext
+  - ok
 - /v2/folders/files/download
+  - ok
 - /v2/folders/files/copy
+  - "MESSAGE": "ERROR - invalid component definition, can't find app.lib.fdapi.accessV1","ERROR": 1
 - /v2/folders/files/delete
+  - ok
 - /v2/folders/files/edit
   - "ERROR - The parameter userId to function createEditToken is required but was not passed in."
 - /v2/folders/files/move
+  - "MESSAGE": "ERROR - invalid component definition, can't find app.lib.fdapi.accessV1","ERROR": 1
 - /v2/folders/files/rename
+  - ok
 - /v2/folders/files/revisions/list
+
 - /v2/folders/files/revisions/create
+
 - /v2/folders/files/revisions/download
+
 - /v2/folders/files/revisions/restore
+
 - /v2/folders/files/preview
+  - ok
 - /v2/folders/files/previewswf
+
 - /v2/folders/isempty
+  - ok
 - /v2/folders/files/precache
+
 - /v2/folders/files/history
+
 - /v2/folders/files/comments/create
+  - ok
 - /v2/folders/files/comments/list
+  - ok
 - /v2/folders/files/comments/delete
+  - ok
 - /v2/folders/files/info
+  - not in the Taffy
 - /v2/links/create
+
 - /v2/links/{linkid}/details
   - what is the ipadddress param in the Taffy for? Removing it from the doc for now.
   - Not giving details, no message returned.
 - /v2/links/{linkid}/update
+
 - /v2/links/{linkid}/delete
+
 - /v2/links/list
   - what are the two parmas in the Taffy for? Removing them from the doc for now.
 - /v2/folders/files/sign
+
 - /v2/signatures/validate
+
 - /v2/signatures/list
+
 - /v2/signatures/revoke
 
 
