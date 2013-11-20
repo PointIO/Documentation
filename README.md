@@ -102,14 +102,14 @@ To do with core.json:
 - /v2/folders/files/info
   - not in the Taffy
 - /v2/links/create
-
+  - ok
 - /v2/links/{linkid}/details
   - what is the ipadddress param in the Taffy for? Removing it from the doc for now.
   - Not giving details, no message returned.
 - /v2/links/{linkid}/update
 
 - /v2/links/{linkid}/delete
-
+  - returns "error":0 when a nonexistant linkid is passed (ex: bloubiboulga).
 - /v2/links/list
   - what are the two parmas in the Taffy for? Removing them from the doc for now.
 - /v2/folders/files/sign
