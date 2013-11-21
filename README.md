@@ -107,7 +107,7 @@ To do with core.json:
   - what is the ipadddress param in the Taffy for? Removing it from the doc for now.
   - Not giving details, no message returned.
 - /v2/links/{linkid}/update
-
+  - The call doesn't have a linkid parameter, only the expiration date parameter.
 - /v2/links/{linkid}/delete
   - returns "error":0 when a nonexistant linkid is passed (ex: bloubiboulga).
 - /v2/links/list
