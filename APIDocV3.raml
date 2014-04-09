@@ -1,0 +1,409 @@
+#%RAML 0.8
+---
+title: APIdoc API
+version: v3.0
+baseUri: http://api.point.io/v2
+mediaType: application/json
+documentation:
+  - title: Introduction
+    content: |
+      point.io APIdoc API
+/auth.json:
+  post:
+    queryParameters:
+      email:
+        type: string
+      password:
+        type: string
+      apikey:
+        type: string
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {"RESULT":
+                {"ORGANIZATIONNAME":"",
+                "URLENCODEDSESSIONKEY":"DEADBEEF7A5600C622897E1D7B88A738317907C0F414CCCB185E2917264EA86EF68717DE88B30690E073CD8001B9C7125696DC7AEC135CA1E1F39868E5F3ACE9",
+                "SESSIONKEY":"CAFEBABE7A5600C622897E1D7B88A738317907C0F414CCCB185E2917264EA86EF68717DE88B30690E073CD8001B9C7120B842F6C427464B0A5E7B1B59EFEA1C0",
+                "SEX":"",
+                "LNAME":"Doe",
+                "MAXFILESIZE":2.097152E+8,
+                "ERROR":0.0,
+                "EMAIL":"jdoe@point.io",
+                "INBOXFOLDER":"",
+                "USERID":"deadbeef-cafe-babe-9ada-123456789abc",
+                "MAXUSERSPERSHARE":-1.0,
+                "GROUPID":3,
+                "FNAME":"John",
+                "TZOFFSET":""
+                },
+              "ERROR":0.0
+              }
+
+            schema: |
+              {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "id": "http://point.io#",
+                "type": "object",
+                "required": true,
+                "title": "root",
+                "description": "",
+                "name": "",
+                "properties": {
+                  "RESULT": {
+                    "id": "#RESULT",
+                    "type": "object",
+                    "required": true,
+                    "title": "",
+                    "description": "",
+                    "name": "",
+                    "properties": {
+                      "ORGANIZATIONNAME": {
+                        "id": "#ORGANIZATIONNAME",
+                        "type": "string",
+                        "required": true,
+                        "title": "",
+                        "description": "",
+                        "name": "",
+                        "minLength": 0
+                      },
+                      "URLENCODEDSESSIONKEY": {
+                        "id": "#URLENCODEDSESSIONKEY",
+                        "type": "string",
+                        "required": true,
+                        "title": "",
+                        "description": "",
+                        "name": "",
+                        "minLength": 0
+                      },
+                      "SESSIONKEY": {
+                        "id": "#SESSIONKEY",
+                        "type": "string",
+                        "required": true,
+                        "title": "",
+                        "description": "",
+                        "name": "",
+                        "minLength": 0
+                      },
+                      "SEX": {
+                        "id": "#SEX",
+                        "type": "string",
+                        "required": true,
+                        "title": "",
+                        "description": "",
+                        "name": "",
+                        "minLength": 0
+                      },
+                      "LNAME": {
+                        "id": "#LNAME",
+                        "type": "string",
+                        "required": true,
+                        "title": "",
+                        "description": "",
+                        "name": "",
+                        "minLength": 0
+                      },
+                      "MAXFILESIZE": {
+                        "id": "#MAXFILESIZE",
+                        "type": "integer",
+                        "required": true,
+                        "title": "",
+                        "description": "",
+                        "name": "",
+                        "minimum": 0
+                      },
+                      "ERROR": {
+                        "id": "#ERROR",
+                        "type": "integer",
+                        "required": true,
+                        "title": "",
+                        "description": "",
+                        "name": "",
+                        "minimum": 0
+                      },
+                      "EMAIL": {
+                        "id": "#EMAIL",
+                        "type": "string",
+                        "required": true,
+                        "title": "",
+                        "description": "",
+                        "name": "",
+                        "minLength": 0
+                      },
+                      "INBOXFOLDER": {
+                        "id": "#INBOXFOLDER",
+                        "type": "string",
+                        "required": true,
+                        "title": "",
+                        "description": "",
+                        "name": "",
+                        "minLength": 0
+                      },
+                      "USERID": {
+                        "id": "#USERID",
+                        "type": "string",
+                        "required": true,
+                        "title": "",
+                        "description": "",
+                        "name": "",
+                        "minLength": 0
+                      },
+                      "MAXUSERSPERSHARE": {
+                        "id": "#MAXUSERSPERSHARE",
+                        "type": "integer",
+                        "required": true,
+                        "title": "",
+                        "description": "",
+                        "name": "",
+                        "minimum": 0
+                      },
+                      "GROUPID": {
+                        "id": "#GROUPID",
+                        "type": "integer",
+                        "required": true,
+                        "title": "",
+                        "description": "",
+                        "name": "",
+                        "minimum": 0
+                      },
+                      "FNAME": {
+                        "id": "#FNAME",
+                        "type": "string",
+                        "required": true,
+                        "title": "",
+                        "description": "",
+                        "name": "",
+                        "minLength": 0
+                      },
+                      "TZOFFSET": {
+                        "id": "#TZOFFSET",
+                        "type": "string",
+                        "required": true,
+                        "title": "",
+                        "description": "",
+                        "name": "",
+                        "minLength": 0
+                      }
+                    }
+                  },
+                  "ERROR": {
+                    "id": "#ERROR",
+                    "type": "integer",
+                    "required": true,
+                    "title": "",
+                    "description": "",
+                    "name": "",
+                    "minimum": 0
+                  }
+                }
+              }
+
+
+/sessionauth:
+  get:
+
+/users:
+  /create:
+    post:
+  /list:
+    get:
+
+  /info:
+    get:
+
+  /chpass:
+    post:
+
+  /preauth:
+    post:
+  /delete:
+    post:
+
+/ping:
+  get:
+
+/folders:
+  /info:
+    get:
+
+  /files:
+    /precache:
+      get:
+    /history:
+      get:
+    /comments:
+      /list:
+        get:
+      /delete:
+        get:
+      /create:
+        get:
+        post:
+
+    /sign:
+      post:
+      put:
+    /info:
+      get:
+    /revisions:
+      /list:
+        get:
+
+/storagesites:
+  /testconnection:
+    get:
+    post:
+
+  /list:
+    get:
+    post:
+
+  /create:
+    post:
+
+  /{siteId}:
+    /details:
+      get:
+    /update:
+      post:
+      put:
+    /delete:
+      get:
+
+/gateways:
+  /{proxyId}:
+    /ping:
+      get:
+        responses:
+          200:
+
+
+/signatures:
+  /list:
+    get:
+  /validate:
+    get:
+    post:
+  /revoke:
+    get:
+
+
+/storagetypes:
+  /list:
+    get:
+  /{sitetypeid}:
+    /params:
+      get:
+
+/accessrules:
+  /{sitetypeid}:
+    /params:
+      get:
+
+/permissions:
+  /list:
+    get:
+
+
+/hubs:
+  /list:
+    get:
+  /create:
+    post:
+  /{hubId}:
+    delete:
+    /auth:
+      post:
+    /sessionvalidate:
+      post:
+    /details:
+      get:
+    /users:
+      /list:
+        get:
+      /add:
+        post:
+      /remove:
+    /activity:
+      /feed:
+        get:
+
+/shares
+  /list:
+    get:
+  /add:
+    post:
+  /remove
+
+/accessrules
+  /list:
+    get:
+
+  /{accesruleid}
+    /info:
+      get:
+
+  /create:
+    post:
+
+/accessrules
+  /{accessruleid}
+    /delete:
+      get:
+
+/folders
+ /create:
+   post:
+
+#/hubs/{hubId}folders/list:
+#get:
+#/folders/list:
+#get:
+#/folders/delete:
+#post:
+#/v2/folders/files/upload:
+#post:
+#/v2/folders/files/download:
+#get:
+#/v2/folders/files/revisions/download:
+#get:
+#/v2/folders/files/copy:
+#post:
+#/v2/folders/files/revisions/create:
+#post:
+#/v2/folders/files/delete:
+#post:
+#/v2/folders/files/move:
+#post:
+#/v2/folders/files/rename:
+#post:
+#/v2/folders/files/revisions/restore:
+#get:
+#/v2/folders/files/checkout:
+#get:
+#/v2/folders/files/checkin:
+#get:
+#/v2/folders/files/preview:
+#get:
+#/v2/folders/files/previewswf:
+#get:
+#/v2/folders/isempty:
+#get:
+#/v2/folders/files/edit:
+#get:
+#/v2/folders/files/uploadastext:
+#post:
+#/v2/links/create:
+#post:
+#/v2/links/{linkid}/details:
+#get:
+#/v2/links/{linkid}/update:
+#post:
+#/v2/links/{linkid}/delete:
+#post:
+#/v2/links/list:
+#get:
+#/v2/gateways/create
+#/v2/gateways/list
+#/v2/gateways/{proxyId}/delete
