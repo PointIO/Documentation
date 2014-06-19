@@ -1,0 +1,124 @@
+{
+    "basePath": "https://api.point.io/v2",
+    "apiVersion": "2.0",
+    "swaggerVersion":"1.1",
+    "resourcePath": "/",
+    "apis": [
+        {
+            "path": "/users/create.{format}",
+            "operations": [
+                {
+                    "summary": "To create a user account",
+                    "httpMethod": "POST",
+                    "nickname": "Create_User",
+                    "notes": "To create a user account with the API",
+                    "parameters": [
+                        {
+                            "name": "appId",
+                            "description": "App ID of your Point.io application. See point.io/account for info.",
+                            "dataType": "String",
+							"paramType": "query",
+                            "required": true
+                        },
+						{
+                            "name": "appSecret",
+                            "description": "App Secret of your Point.io application. See point.io/account for info.",
+                            "dataType": "String",
+							"paramType": "query",
+                            "required": true
+                        },
+						{
+                            "name": "email",
+                            "description": "The email address of the account you want to create",
+                            "dataType": "String",
+							"paramType": "query",
+                            "required": true
+						},
+						{
+                            "name": "firstname",
+                            "description": "The first (given) name of the account you want to create",
+                            "dataType": "String",
+							"paramType": "query",
+                            "required": true
+                        },
+						{
+                            "name": "lastname",
+                            "description": "The last (family) name of the account you want to create",
+                            "dataType": "String",
+							"paramType": "query",
+                            "required": true
+                        },
+						{
+                            "name": "password",
+                            "description": "User's desired password. If left blank, one will be generated",
+                            "dataType": "String",
+							"paramType": "query",
+                            "required": false
+                        }
+                    ]
+                }
+            ]
+        }
+	],
+	"models": {
+    	"Result":{
+			"properties": {
+			  "ERROR": {
+				"type": "int",
+				"description": "1 for Error, 0 for success"
+			  },
+			  "MESSAGE": {
+				"type": "string",
+				"description": "If an error occured, this will be provided with a description of the error"
+			  },
+			  "RESULT": {
+				"type": "string"
+			  }
+		  	},
+		  	"id": "Result"
+    	},
+    	"Error":{
+			"properties": {
+			  "ERROR": {
+				"type": "int",
+				"description": "1 for Error, 0 for success"
+			  },
+			  "MESSAGE": {
+				"type": "string",
+				"description": "If an error occured, this will be provided with a description of the error"
+			  }
+		  	},
+		  	"id": "Error"
+    	},
+    	"VariableResult":{
+			"properties": {
+			  "ERROR": {
+				"type": "int",
+				"description": "1 for Error, 0 for success"
+			  },
+			  "MESSAGE": {
+				"type": "string",
+				"description": "If an error occured, this will be provided with a description of the error"
+			  },
+			  "RESULT": {
+				"type": "ColData"
+			  }
+		  	},
+		  	"id": "VariableResult"
+    	},
+    	"ColData":{
+			"properties": {
+			  "COLUMNS": {
+				"type": "List",
+				"description": "An Array of strings containing labels for RESULT.DATA array indices"
+			  },
+			  "DATA": {
+				"type": "List",
+				"description": "A List of Lists containing data fields. The data field labels are described in RESULT.COLUMNS."
+			  }
+		  	},
+		  	"id": "ColData"
+    	}
+    }
+}
+

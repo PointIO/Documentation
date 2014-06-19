@@ -1,0 +1,112 @@
+	<script type="text/javascript" src="public/js/jquery-1.9.1.js"></script>
+
+
+	$(".codetab_content").hide();
+	$(".codetab_content:first").show();
+
+	$("#codeswitch").click(function() {
+		$(".codetab_content").toggle();
+		$(".codetab_container").toggle();
+		$(".codetabs").toggle();
+	});
+
+	$("ul.codetabs li").click(function() {
+		$("ul.codetabs li").removeClass("active");
+		$(this).addClass("active");
+		$(".codetab_content").hide();
+		var activeTab = $(this).attr("rel");
+		$("#"+activeTab).fadeIn();
+	});
+
+	<ul class="codetabs">
+		<li class="active" rel="tab1">JavaScript</li>
+		<li rel="tab2">Scala</li>
+		<li rel="tab3">Java</li>
+		<li rel="tab4">Python</li>
+	</ul>
+
+	<div class="codetab_container">
+		<div id="tab1" class="codetab_content">
+			<p>JavaScript sample code goes here.</p>
+			
+		</div><!--#tab1-->
+
+		<div id="tab2" class="codetab_content">
+			<p>Scala sample code goes here.</p>
+		</div><!--#tab2-->
+
+
+		<div id="tab3" class="codetab_content">
+			<p>Java sample code goes here.</p>
+		</div><!--#tab3-->
+
+
+		<div id="tab4" class="codetab_content">
+			<p>Python sample code goes here.</p>
+		</div><!--#tab4-->
+	</div><!--.codetab_container-->
+
+<tr>
+		<td style="text-align: right">Starter Code</td>
+		<td> <div class="onoffswitch">
+		    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="codeswitch" checked>
+		    <label class="onoffswitch-label" for="codeswitch">
+		        <span class="onoffswitch-inner"></span>
+		        <span class="onoffswitch-switch"></span>
+		    </label>
+			</div></td>
+		</tr>
+
+
+	<script>
+$(document).ready(function () {
+	prettyPrint();
+
+	window.swaggerUi = new SwaggerUi({
+	    discoveryUrl: "http://point.io/sites/default/files/APIFlow.json", //this incorrectly lists the tutorials as coming from http://localhost...
+	    dom_id:"apiflowtutorial",
+	    supportHeaderParams: true,
+	    supportedSubmitMethods: ['get', 'post', 'put'],
+	    onComplete: function(swaggerApi, swaggerUi){
+	    	if(console) {
+	            console.log("Loaded SwaggerUI")
+	            // console.log(swaggerApi);
+	            // console.log(swaggerUi);
+	            $(".endpoints").addClass("col-md-6")
+	            $('li[id^="resource_"]').addClass("row")
+
+				$.ajaxSetup ({
+				    // Disable caching of AJAX responses
+				    cache: false
+				});
+	            
+	            $("#resource_FlowTutorialOne\\.json").append('<div id="FlowTutorialOneCode" class="hide"></div>')
+				$( "#FlowTutorialOneCode" ).load( "code1.html" );	            
+
+				$("#resource_FlowTutorialTwo\\.json").append('<div id="FlowTutorialTwoCode" class="hide"></div>')
+				$( "#FlowTutorialTwoCode" ).load( "code2.html" );	            
+
+				// $("#resource_FlowTutorialThree\\.json").append('<div id="FlowTutorialThreeCode" class="hide"></div>')
+				//$( "#FlowTutorialThreeCode" ).load( "code3.html" );	            
+
+				// $("#resource_FlowTutorialFour\\.json").append('<div id="FlowTutorialFourCode" class="hide"></div>')
+				// $( "#FlowTutorialFourCode" ).load( "code4.html" );	            
+
+				// $("#resource_FlowTutorialFive\\.json").append('<div id="FlowTutorialFiveCode" class="hide"></div>')
+				// $( "#FlowTutorialFiveCode" ).load( "code5.html" );	            
+	        }
+	      $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+	    },
+	    onFailure: function(data) {
+	    	if(console) {
+	            console.log("Unable to Load SwaggerUI");
+	            console.log(data);
+	        }
+	    },
+	    docExpansion: "none"
+	});
+
+	window.swaggerUi.load();	
+});
+
+</script>
