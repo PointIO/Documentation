@@ -1,0 +1,21 @@
+{
+    "resourcesPath": "http://api.point.io",
+    "apiVersion": "2.0",
+    "swaggerVersion": "1.1",
+    "nickname": "Point.io API",
+    "basePath": "http://localhost/docupgrade/sample-code/APIflow/tutorials",
+    "apis": [
+        {
+            "path": "/FlowTutorialOne.json",
+            "description": "Start and complete a simple workflow."
+        },
+        {
+            "path": "/FlowTutorialTwo.json",
+            "description": "Start and complete a simple workflow via message."
+        },
+        {
+            "path": "/FlowTutorialThree.json",
+            "description": "List tasks for a user."
+        }
+    ]
+}
