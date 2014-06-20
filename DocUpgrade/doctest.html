@@ -108,16 +108,24 @@
 						});
 			            
 			            $("#resource_FlowTutorialOne\\.json").append('<div id="FlowTutorialOneCode" class="hide"></div>')
-						$( "#FlowTutorialOneCode" ).load( "flowcode1.html" );
-							            
+						$( "#FlowTutorialOneCode" ).load( "flowcode1.html" );           
 
 						$("#resource_FlowTutorialTwo\\.json").append('<div id="FlowTutorialTwoCode" class="hide"></div>')
 						$( "#FlowTutorialTwoCode" ).load( "flowcode2.html" );	            
 
 						$("#resource_FlowTutorialThree\\.json").append('<div id="FlowTutorialThreeCode" class="hide"></div>')
-						$( "#FlowTutorialThreeCode" ).load( "flowcode3.html" );
+						$( "#FlowTutorialThreeCode" ).load( "flowcode3.html" );            
 
-						// $("#FlowTutorialOne\\.json_nickname_post2:contains('body')").append('<button id="openModal'>My Button</button>')	            
+						// Adds button to fill body field with sample json.
+						$("#FlowTutorialOne\\.json_nickname_post_2_content").find('textarea[name="body"]').parent().next().append('<button data-toggle="modal" data-target="#openModal" style="margin-top: 10px">Select a body</button>')
+
+						$("#FlowTutorialOne\\.json_nickname_put_3_content").find('textarea[name="body"]').parent().next().append('<button data-toggle="modal" data-target="#openModal" style="margin-top: 10px">Select a body</button')
+
+						$("#FlowTutorialTwo\\.json_nickname_post_1_content").find('textarea[name="body"]').parent().next().append('<button data-toggle="modal" data-target="#openModal" style="margin-top: 10px">Select a body</button>')
+
+						$("#FlowTutorialTwo\\.json_nickname_put_2_content").find('textarea[name="body"]').parent().next().append('<button data-toggle="modal" data-target="#openModal" style="margin-top: 10px">Select a body</button>')
+
+						$("#FlowTutorialThree\\.json_nickname_put_2_content").find('textarea[name="body"]').parent().next().append('<button data-toggle="modal" data-target="#openModal" style="margin-top: 10px">Select a body</button>')	
 
 						// $("#resource_FlowTutorialFour\\.json").append('<div id="FlowTutorialFourCode" class="hide"></div>')
 						// $( "#FlowTutorialFourCode" ).load( "code4.html" );	            
@@ -189,5 +197,26 @@
 
 	<div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
 	<div id="swagger-container" class="swagger-ui-wrap"></div>
+
+	<div class="modal fade" id="openModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">What Sample Body Would You Like To Use?</h4>
+      </div>
+      <div class="modal-body">
+        <form action="">
+		<input type="radio" name="options" value="email">  Email<br>
+		<input type="radio" name="options" value="HRSignDoc">  HR SignDoc
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Copy Code</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
