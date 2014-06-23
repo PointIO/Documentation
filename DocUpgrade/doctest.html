@@ -117,15 +117,90 @@
 						$( "#FlowTutorialThreeCode" ).load( "flowcode3.html" );            
 
 						// Adds button to fill body field with sample json.
-						$("#FlowTutorialOne\\.json_nickname_post_2_content").find('textarea[name="body"]').parent().next().append('<button data-toggle="modal" data-target="#openModal" style="margin-top: 10px">Select a body</button>')
+						$("#FlowTutorialOne\\.json_nickname_post_2_content").find('textarea[name="body"]').parent().next().append('<button id="flowonepost2" data-toggle="modal" data-target="#openModal" style="margin-top: 10px">Select a body</button>')
 
-						$("#FlowTutorialOne\\.json_nickname_put_3_content").find('textarea[name="body"]').parent().next().append('<button data-toggle="modal" data-target="#openModal" style="margin-top: 10px">Select a body</button')
+						// Allows user to add content to body field using modal.
+						$("#flowonepost2").on("click", function() {
+							$("#FlowTutorialOne\\.json_nickname_post_2_content").find('textarea[name="body"]').attr('id', 'flowonebody1');
+							$(".btn-primary").on("click", function() {
+								$("#flowonebody1").html("");
+								if ($( "input:radio[name=options]:checked" ).val() == 'email') {
+									console.log("Got here 2");
+									$('#flowonebody1').append("Yes this worked!");
+								} else if ($( "input:radio[name=options]:checked" ).val() == 'HRSignDoc') {
+									console.log("Got here 3");									
+									$('#flowonebody1').append("Oh no you didn't");
+								}
+							})
+						});
 
-						$("#FlowTutorialTwo\\.json_nickname_post_1_content").find('textarea[name="body"]').parent().next().append('<button data-toggle="modal" data-target="#openModal" style="margin-top: 10px">Select a body</button>')
 
-						$("#FlowTutorialTwo\\.json_nickname_put_2_content").find('textarea[name="body"]').parent().next().append('<button data-toggle="modal" data-target="#openModal" style="margin-top: 10px">Select a body</button>')
+						$("#FlowTutorialOne\\.json_nickname_put_3_content").find('textarea[name="body"]').parent().next().append('<button id="flowoneput3" data-toggle="modal" data-target="#openModal" style="margin-top: 10px">Select a body</button')
 
-						$("#FlowTutorialThree\\.json_nickname_put_2_content").find('textarea[name="body"]').parent().next().append('<button data-toggle="modal" data-target="#openModal" style="margin-top: 10px">Select a body</button>')	
+						$("#flowoneput3").on("click", function() {
+							$("#FlowTutorialOne\\.json_nickname_put_3_content").find('textarea[name="body"]').attr('id', 'flowonebody2');
+							$(".btn-primary").on("click", function() {
+								$("#flowonebody2").html("");
+								if ($( "input:radio[name=options]:checked" ).val() == 'email') {
+									console.log("Got here 2");
+									$('#flowonebody2').append("Yes this worked!");
+								} else if ($( "input:radio[name=options]:checked" ).val() == 'HRSignDoc') {
+									console.log("Got here 3");									
+									$('#flowonebody2').append("Oh no you didn't");
+								}
+							})
+						});
+
+
+						$("#FlowTutorialTwo\\.json_nickname_post_1_content").find('textarea[name="body"]').parent().next().append('<button id="flowtwopost1" data-toggle="modal" data-target="#openModal" style="margin-top: 10px">Select a body</button>')
+
+						$("#flowtwopost1").on("click", function() {
+							$("#FlowTutorialTwo\\.json_nickname_post_1_content").find('textarea[name="body"]').attr('id', 'flowtwobody1');
+							$(".btn-primary").on("click", function() {
+								$("#flowtwobody1").html("");
+								if ($( "input:radio[name=options]:checked" ).val() == 'email') {
+									console.log("Got here 2");
+									$('#flowtwobody1').append("Yes this worked!");
+								} else if ($( "input:radio[name=options]:checked" ).val() == 'HRSignDoc') {
+									console.log("Got here 3");									
+									$('#flowtwobody1').append("Oh no you didn't");
+								}
+							})
+						});
+
+						$("#FlowTutorialTwo\\.json_nickname_put_2_content").find('textarea[name="body"]').parent().next().append('<button id="flowtwoput2" data-toggle="modal" data-target="#openModal" style="margin-top: 10px">Select a body</button>')
+
+
+						$("#flowtwoput2").on("click", function() {
+							$("#FlowTutorialTwo\\.json_nickname_put_2_content").find('textarea[name="body"]').attr('id', 'flowtwobody2');
+							$(".btn-primary").on("click", function() {
+								$("#flowtwobody2").html("");
+								if ($( "input:radio[name=options]:checked" ).val() == 'email') {
+									console.log("Got here 2");
+									$('#flowtwobody2').append("Yes this worked!");
+								} else if ($( "input:radio[name=options]:checked" ).val() == 'HRSignDoc') {
+									console.log("Got here 3");									
+									$('#flowtwobody2').append("Oh no you didn't");
+								}
+							})
+						});
+
+
+						$("#FlowTutorialThree\\.json_nickname_put_2_content").find('textarea[name="body"]').parent().next().append('<button id="flowthreeput2" data-toggle="modal" data-target="#openModal" style="margin-top: 10px">Select a body</button>')
+
+						$("#flowthreeput2").on("click", function() {
+							$("#FlowTutorialThree\\.json_nickname_put_2_content").find('textarea[name="body"]').attr('id', 'flowthreebody1');
+							$(".btn-primary").on("click", function() {
+								$("#flowthreebody1").html("");
+								if ($( "input:radio[name=options]:checked" ).val() == 'email') {
+									console.log("Got here 2");
+									$('#flowthreebody1').append("Yes this worked!");
+								} else if ($( "input:radio[name=options]:checked" ).val() == 'HRSignDoc') {
+									console.log("Got here 3");									
+									$('#flowthreebody1').append("Oh no you didn't");
+								}
+							})
+						});	
 
 						// $("#resource_FlowTutorialFour\\.json").append('<div id="FlowTutorialFourCode" class="hide"></div>')
 						// $( "#FlowTutorialFourCode" ).load( "code4.html" );	            
@@ -212,7 +287,7 @@
 		</form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         <button type="button" class="btn btn-primary">Copy Code</button>
       </div>
     </div>
