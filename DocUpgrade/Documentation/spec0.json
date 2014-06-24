@@ -1,0 +1,17 @@
+{
+	"apiVersion":"2.0",
+	"swaggerVersion":"1.1",
+	"nickname":"Point.io API",
+	"basePath":"http://localhost/docupgrade/Documentation",
+	"apis":[
+	{
+		"path":"/core.json",
+		"description":"Point.io Document API"
+	},{
+		"path":"/hub.json",
+		"description":"Point.io Hub API"
+	},{
+		"path":"/admin.json",
+		"description":"Point.io Admin API"
+	}
+]}

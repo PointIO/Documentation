@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML+RDFa 1.1//EN">
+
+
+<head>
+	
+	<title>Point.io Tutorials and Documentation</title>
+	<!--Imports the following CSS-->
+	<link rel="stylesheet" type="text/css" href="public/css/tutorials.css">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
+	<link rel="stylesheet" type="text/css" href="public/css/hightlight.default.css">
+	<link rel="stylesheet" type="text/css" href="public/css/screen.css">
+	<link rel="stylesheet" type="text/css" href="public/css/prettify.css">
+	<link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+	
+	<!--Imports the following Javascript libraries-->	
+	<script type="text/javascript" src="public/js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="public/js/jquery.slideto.min.js"></script>
+	<script type="text/javascript" src="public/js/jquery.wiggle.min.js"></script>
+	<script type="text/javascript" src="public/js/jquery.ba-bbq.min.js"></script>
+	<script type="text/javascript" src="public/js/handlebars-1.0.0.js"></script>
+	<script type="text/javascript" src="public/js/underscore-min.js"></script>
+	<script type="text/javascript" src="public/js/backbone-min.js"></script>
+	<script type="text/javascript" src="public/js/swagger.js"></script>
+	<script type="text/javascript" src="public/js/swagger-ui.js"></script>
+	<script type="text/javascript" src="public/js/highlight.7.3.pack.js"></script>
+    <script type="text/javascript" src="public/js/prettify.js"></script>
+	<script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			//------Start of APIdoc tutorial-----
+			$("#doctutorial").click(function() {
+			prettyPrint();
+
+			window.swaggerUi = new SwaggerUi( {
+			    discoveryUrl: "http://localhost/docupgrade/APIdoc_tutorial/tutorials.json",
+			    dom_id:"swagger-container",
+			    supportHeaderParams: true,
+			    supportedSubmitMethods: ['get', 'post', 'put'],
+			    onComplete: function(swaggerApi, swaggerUi){
+			    	if(console) {
+			            console.log("Loaded SwaggerUI")
+			            $(".endpoints").addClass("col-md-6")
+			            $('li[id^="resource_"]').addClass("row")
+
+						$.ajaxSetup ({
+						    // Disable caching of AJAX responses
+						    cache: false
+						});
+
+						// Adds sample code for the first APIdoc tutorial.
+						$("#resource_CoreTutorialOne\\.json").append('<div id="CoreTutorialOneCode" class="hide"></div>')
+						$( "#CoreTutorialOneCode" ).load( "http://localhost/docupgrade/APIdoc_tutorial/code1.html" );
+
+						// Adds sample code for the second APIdoc tutorial.
+						$("#resource_CoreTutorialTwo\\.json").append('<div id="CoreTutorialTwoCode" class="hide"></div>')
+						$( "#CoreTutorialTwoCode" ).load( "http://localhost/docupgrade/APIdoc_tutorial/code2.html" );	            
+						// Adds sample code for the third APIdoc tutorial.
+						$("#resource_CoreTutorialThree\\.json").append('<div id="CoreTutorialThreeCode" class="hide"></div>')
+						$( "#CoreTutorialThreeCode" ).load( "http://localhost/docupgrade/APIdoc_tutorial/code3.html" );	            
+						// Adds sample code for the fourth APIdoc tutorial.
+						$("#resource_CoreTutorialFour\\.json").append('<div id="CoreTutorialFourCode" class="hide"></div>')
+						$( "#CoreTutorialFourCode" ).load( "http://localhost/docupgrade/APIdoc_tutorial/code4.html" );	            
+						// Adds sample code for the fifth APIdoc tutorial.
+						$("#resource_CoreTutorialFive\\.json").append('<div id="CoreTutorialFiveCode" class="hide"></div>')
+						$( "#CoreTutorialFiveCode" ).load( "http://localhost/docupgrade/APIdoc_tutorial/code5.html" );	          
+
+
+
+			        }
+			      $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+			    },
+			    onFailure: function(data) {
+			    	if(console) {
+			            console.log("Unable to Load SwaggerUI");
+			            console.log(data);
+			        }
+			    },
+			    docExpansion: "none"
+			});
+
+			window.swaggerUi.load();	
+		});
+		//-----End of APIdoc tutorial-----//
+
+		//-----Start of APIflow Tutorial-----//
+		$("#flowtutorial").click(function() {
+			prettyPrint();
+
+			window.swaggerUi = new SwaggerUi({
+			    discoveryUrl: "http://localhost/docupgrade/APIflow_tutorial/APIFlow.json",
+			    dom_id:"swagger-container",
+			    supportHeaderParams: true,
+			    supportedSubmitMethods: ['get', 'post', 'put'],
+			    onComplete: function(swaggerApi, swaggerUi){
+			    	if(console) {
+			            console.log("Loaded SwaggerUI")
+			            $(".endpoints").addClass("col-md-6")
+			            $('li[id^="resource_"]').addClass("row")
+
+						$.ajaxSetup ({
+						    // Disable caching of AJAX responses
+						    cache: false
+						});
+			            
+			            // Adds sample code for the first APIflow tutorial.
+			            $("#resource_FlowTutorialOne\\.json").append('<div id="FlowTutorialOneCode" class="hide"></div>')
+						$( "#FlowTutorialOneCode" ).load( "http://localhost/docupgrade/APIflow_tutorial/flowcode1.html" );           
+
+						// Adds sample code for the second APIflow tutorial.
+						$("#resource_FlowTutorialTwo\\.json").append('<div id="FlowTutorialTwoCode" class="hide"></div>')
+						$( "#FlowTutorialTwoCode" ).load( "http://localhost/docupgrade/APIflow_tutorial/flowcode2.html" );	            
+
+						// Adds sample code for the third APIflow tutorial.
+						$("#resource_FlowTutorialThree\\.json").append('<div id="FlowTutorialThreeCode" class="hide"></div>')
+						$( "#FlowTutorialThreeCode" ).load( "http://localhost/docupgrade/APIflow_tutorial/flowcode3.html" );            
+
+						// Adds button to fill body field with sample json.
+						$("#FlowTutorialOne\\.json_nickname_post_2_content").find('textarea[name="body"]').parent().next().append('<button id="flowonepost2" data-toggle="modal" data-target="#openModal" style="margin-top: 10px">Select a body</button>')
+
+						// Allows user to add content to body field using modal.
+						$("#flowonepost2").on("click", function() {
+							$("#FlowTutorialOne\\.json_nickname_post_2_content").find('textarea[name="body"]').attr('id', 'flowonebody1');
+							$(".btn-primary").on("click", function() {
+								$("#flowonebody1").html("");
+								if ($( "input:radio[name=options]:checked" ).val() == 'email') {
+									console.log("Got here 2");
+									$('#flowonebody1').append("Yes this worked!");
+								} else if ($( "input:radio[name=options]:checked" ).val() == 'HRSignDoc') {
+									console.log("Got here 3");									
+									$('#flowonebody1').append("Oh no you didn't");
+								}
+							})
+						});
+
+
+						$("#FlowTutorialOne\\.json_nickname_put_3_content").find('textarea[name="body"]').parent().next().append('<button id="flowoneput3" data-toggle="modal" data-target="#openModal" style="margin-top: 10px">Select a body</button')
+
+						$("#flowoneput3").on("click", function() {
+							$("#FlowTutorialOne\\.json_nickname_put_3_content").find('textarea[name="body"]').attr('id', 'flowonebody2');
+							$(".btn-primary").on("click", function() {
+								$("#flowonebody2").html("");
+								if ($( "input:radio[name=options]:checked" ).val() == 'email') {
+									console.log("Got here 2");
+									$('#flowonebody2').append("Yes this worked!");
+								} else if ($( "input:radio[name=options]:checked" ).val() == 'HRSignDoc') {
+									console.log("Got here 3");									
+									$('#flowonebody2').append("Oh no you didn't");
+								}
+							})
+						});
+
+
+						$("#FlowTutorialTwo\\.json_nickname_post_1_content").find('textarea[name="body"]').parent().next().append('<button id="flowtwopost1" data-toggle="modal" data-target="#openModal" style="margin-top: 10px">Select a body</button>')
+
+						$("#flowtwopost1").on("click", function() {
+							$("#FlowTutorialTwo\\.json_nickname_post_1_content").find('textarea[name="body"]').attr('id', 'flowtwobody1');
+							$(".btn-primary").on("click", function() {
+								$("#flowtwobody1").html("");
+								if ($( "input:radio[name=options]:checked" ).val() == 'email') {
+									console.log("Got here 2");
+									$('#flowtwobody1').append("Yes this worked!");
+								} else if ($( "input:radio[name=options]:checked" ).val() == 'HRSignDoc') {
+									console.log("Got here 3");									
+									$('#flowtwobody1').append("Oh no you didn't");
+								}
+							})
+						});
+
+						$("#FlowTutorialTwo\\.json_nickname_put_2_content").find('textarea[name="body"]').parent().next().append('<button id="flowtwoput2" data-toggle="modal" data-target="#openModal" style="margin-top: 10px">Select a body</button>')
+
+
+						$("#flowtwoput2").on("click", function() {
+							$("#FlowTutorialTwo\\.json_nickname_put_2_content").find('textarea[name="body"]').attr('id', 'flowtwobody2');
+							$(".btn-primary").on("click", function() {
+								$("#flowtwobody2").html("");
+								if ($( "input:radio[name=options]:checked" ).val() == 'email') {
+									console.log("Got here 2");
+									$('#flowtwobody2').append("Yes this worked!");
+								} else if ($( "input:radio[name=options]:checked" ).val() == 'HRSignDoc') {
+									console.log("Got here 3");									
+									$('#flowtwobody2').append("Oh no you didn't");
+								}
+							})
+						});
+
+
+						$("#FlowTutorialThree\\.json_nickname_put_2_content").find('textarea[name="body"]').parent().next().append('<button id="flowthreeput2" data-toggle="modal" data-target="#openModal" style="margin-top: 10px">Select a body</button>')
+
+						$("#flowthreeput2").on("click", function() {
+							$("#FlowTutorialThree\\.json_nickname_put_2_content").find('textarea[name="body"]').attr('id', 'flowthreebody1');
+							$(".btn-primary").on("click", function() {
+								$("#flowthreebody1").html("");
+								if ($( "input:radio[name=options]:checked" ).val() == 'email') {
+									console.log("Got here 2");
+									$('#flowthreebody1').append("Yes this worked!");
+								} else if ($( "input:radio[name=options]:checked" ).val() == 'HRSignDoc') {
+									console.log("Got here 3");									
+									$('#flowthreebody1').append("Oh no you didn't");
+								}
+							})
+						});	
+
+						// $("#resource_FlowTutorialFour\\.json").append('<div id="FlowTutorialFourCode" class="hide"></div>')
+						// $( "#FlowTutorialFourCode" ).load( "code4.html" );	            
+
+						// $("#resource_FlowTutorialFive\\.json").append('<div id="FlowTutorialFiveCode" class="hide"></div>')
+						// $( "#FlowTutorialFiveCode" ).load( "code5.html" );	            
+			        }
+			      $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+			    },
+			    onFailure: function(data) {
+			    	if(console) {
+			            console.log("Unable to Load SwaggerUI");
+			            console.log(data);
+			        }
+			    },
+			    docExpansion: "none"
+			});
+
+			window.swaggerUi.load();	
+		});
+		//-----End of APIflow tutorial-----//
+
+		//-----Start of Documentation-----//
+			$("#docs").click(function() {
+			prettyPrint();
+
+			window.swaggerUi = new SwaggerUi({
+			    discoveryUrl: "http://localhost/docupgrade/Documentation/spec0.json",
+			    dom_id:"swagger-container",
+			    supportHeaderParams: true,
+			    supportedSubmitMethods: ['get', 'post', 'put'],
+			    onComplete: function(swaggerApi, swaggerUi){
+			    	if(console) {
+			            console.log("Loaded SwaggerUI")
+			            // console.log(swaggerApi);
+			            // console.log(swaggerUi);
+			            $(".endpoints").addClass("col-md-6")
+			            $('li[id^="resource_"]').addClass("row")
+
+						$.ajaxSetup ({
+						    // Disable caching of AJAX responses
+						    cache: false
+						});
+			               
+			        }
+			      $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+			    },
+			    onFailure: function(data) {
+			    	if(console) {
+			            console.log("Unable to Load SwaggerUI");
+			            console.log(data);
+			        }
+			    },
+			    docExpansion: "none"
+			});
+
+			window.swaggerUi.load();	
+		});
+		//-----End of Documentation-----//
+
+		// Sets APIdoc tutorial to be expanded on the page on first-load.
+		$("#doctutorial").click();
+	});
+	//-----End of document.ready function-----//
+	</script>
+</head>
+
+<body>
+	<button id="doctutorial" class="upper-buttons">APIDoc Tutorial</button>
+	<button id="flowtutorial" class="upper-buttons">APIFlow Tutorial</button>
+	<button id="docs" class="upper-buttons">Point.io API Documentation</button>
+
+	<div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
+	<div id="swagger-container" class="swagger-ui-wrap"></div>
+
+	<div class="modal fade" id="openModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">What Sample Body Would You Like To Use?</h4>
+      </div>
+      <div class="modal-body">
+        <form action="">
+		<input type="radio" name="options" value="email">  Email<br>
+		<input type="radio" name="options" value="HRSignDoc">  HR SignDoc
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Copy Code</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
