@@ -1,5 +1,5 @@
 {
-    "basePath": "http://localhost:9000",
+    "basePath": "http://pointflow.point.io",
     "apiVersion": "2.0",
     "swaggerVersion": "1.1",
     "resourcePath": "/",
