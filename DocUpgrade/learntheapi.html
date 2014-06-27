@@ -118,21 +118,24 @@
 						$( "#FlowTutorialThreeCode" ).load( "http://localhost/docupgrade/APIflow_tutorial/flowcode3.html" );            
 
 						// Adds button to fill body field with sample json.
-						$("#FlowTutorialOne\\.json_nickname_post_2_content").find('textarea[name="body"]').parent().next().append('<button id="flowonepost2" data-toggle="modal" data-target="#openModal" style="margin-top: 10px">Select a body</button>')
+						$("#FlowTutorialOne\\.json_nickname_post_2_content").find('textarea[name="body"]').parent().next().append('<button id="flowonepost2" data-toggle="modal" data-target="#openModal" style="margin-top: 10px">What it looks like in Account Maintenance</button>')
 
 						// Allows user to add content to body field using modal.
 						$("#flowonepost2").on("click", function() {
 							$("#FlowTutorialOne\\.json_nickname_post_2_content").find('textarea[name="body"]').attr('id', 'flowonebody1');
+							
+
 							$(".btn-primary").on("click", function() {
 								$("#flowonebody1").html("");
 								if ($( "input:radio[name=options]:checked" ).val() == 'email') {
 									console.log("Got here 2");
 									$('#flowonebody1').append("Yes this worked!");
-								} else if ($( "input:radio[name=options]:checked" ).val() == 'HRSignDoc') {
+								} else if ($( "input:radio[name=options]:checked" ).val() == 'whatevs') {
 									console.log("Got here 3");									
 									$('#flowonebody1').append("Oh no you didn't");
 								}
 							})
+
 						});
 
 
@@ -140,15 +143,27 @@
 
 						$("#flowoneput3").on("click", function() {
 							$("#FlowTutorialOne\\.json_nickname_put_3_content").find('textarea[name="body"]').attr('id', 'flowonebody2');
+
+								// Adds radio buttons dynamically to modal for this call.
+								var approvalRadio = $('<input type="radio" name="options" value="approve">');
+								var approvalText = $('<p style="display: inline"> Approve the reviewed document. </p>');
+								var rejectRadio = $('<input type="radio" name="options" value="reject">');
+								var rejectText = $('<p style="display: inline"> Reject the reviewed document. </p>');
+								var modalbody = $('<div></div>');
+
+								modalbody.append(approvalRadio, approvalText, '<br>', rejectRadio, rejectText);
+								$(".modal-body").append(modalbody);
+
+							// Adds corresponding JSON to body parameter.
 							$(".btn-primary").on("click", function() {
 								$("#flowonebody2").html("");
-								if ($( "input:radio[name=options]:checked" ).val() == 'email') {
-									console.log("Got here 2");
-									$('#flowonebody2').load("http://localhost/docupgrade/FlowOnePut3a.json");
-								} else if ($( "input:radio[name=options]:checked" ).val() == 'HRSignDoc') {
-									console.log("Got here 3");									
-									$('#flowonebody2').append("Oh no you didn't");
+								if ($( "input:radio[name=options]:checked" ).val() == 'approve') {
+									$('#flowonebody2').load("http://localhost/docupgrade/APIflow_tutorial/FlowOnePut3a.json");
+								} else if ($( "input:radio[name=options]:checked" ).val() == 'reject') {
+									$('#flowonebody2').load("http://localhost/docupgrade/APIFlow_tutorial/FlowOnePut3b.json");
 								}
+
+								modalbody.remove();
 							})
 						});
 
@@ -210,9 +225,12 @@
 						$("#FlowTutorialOne\\.json_nickname_post_2_content").find('textarea[name="body"]').load("http://localhost/docupgrade/APIflow_tutorial/FlowOnePost2.json");
 
 						// Adds a task id to the taskId parameter of FlowTutorialOne /tasks/{task}
+						$("#FlowTutorialOne\\.json_nickname_put_3_content").find('input.parameter.required[name="taskId"]').val("87247");
 
-						// Adds a proper JSON sample to FlowTutorialOne /tasks/{task} body.
-						$("#FlowTutorialOne\\.json_nickname_put_3_content").find('textarea[name="body"]').load("http://localhost/docupgrade/APIflow_tutorial/FlowOnePut3.json");
+						// Adds the message name automatically to parameter in FlowTutorialTwo /messages/{messageName}
+						$("#FlowTutorialTwo\\.json_nickname_post_1_content").find('input.parameter.required[name="messageName"]').val("documentApprovalMsg");
+
+						
 
 	            
 			        }
@@ -300,8 +318,9 @@
       </div>
       <div class="modal-body">
         <form action="">
-		<input type="radio" name="options" value="email">  Email<br>
-		<input type="radio" name="options" value="HRSignDoc">  HR SignDoc
+  			<div id="modalbody"></div>
+		<!--<input type="radio" name="options" value="email">  Email<br>
+		<input type="radio" name="options" value="HRSignDoc">  HR SignDoc -->
 		</form>
       </div>
       <div class="modal-footer">

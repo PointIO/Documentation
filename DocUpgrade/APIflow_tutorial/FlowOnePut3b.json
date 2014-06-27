@@ -1,0 +1,10 @@
+{
+	"RESPONSE": 
+	{
+	  "OUTPUT" : {
+		"COMMENT" : "Reviewed and rejected via API",
+		"OPTIONID" : "reject",
+		"FIELDS" : []
+	  }
+	}
+}
