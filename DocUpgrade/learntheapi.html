@@ -144,7 +144,7 @@
 								$("#flowonebody2").html("");
 								if ($( "input:radio[name=options]:checked" ).val() == 'email') {
 									console.log("Got here 2");
-									$('#flowonebody2').append("Yes this worked!");
+									$('#flowonebody2').load("http://localhost/docupgrade/FlowOnePut3a.json");
 								} else if ($( "input:radio[name=options]:checked" ).val() == 'HRSignDoc') {
 									console.log("Got here 3");									
 									$('#flowonebody2').append("Oh no you didn't");
@@ -201,13 +201,20 @@
 									$('#flowthreebody1').append("Oh no you didn't");
 								}
 							})
-						});	
+						});
 
-						// $("#resource_FlowTutorialFour\\.json").append('<div id="FlowTutorialFourCode" class="hide"></div>')
-						// $( "#FlowTutorialFourCode" ).load( "code4.html" );	            
+						// Adds "approval" as the value of the name parameter of FlowTutorialOne /processes/{name}.
+						$("#FlowTutorialOne\\.json_nickname_post_2_content").find('input.parameter.required[name="name"]').val("approval");
 
-						// $("#resource_FlowTutorialFive\\.json").append('<div id="FlowTutorialFiveCode" class="hide"></div>')
-						// $( "#FlowTutorialFiveCode" ).load( "code5.html" );	            
+						// Adds sample JSON to FlowTutorialOne /processes/{name} body.
+						$("#FlowTutorialOne\\.json_nickname_post_2_content").find('textarea[name="body"]').load("http://localhost/docupgrade/APIflow_tutorial/FlowOnePost2.json");
+
+						// Adds a task id to the taskId parameter of FlowTutorialOne /tasks/{task}
+
+						// Adds a proper JSON sample to FlowTutorialOne /tasks/{task} body.
+						$("#FlowTutorialOne\\.json_nickname_put_3_content").find('textarea[name="body"]').load("http://localhost/docupgrade/APIflow_tutorial/FlowOnePut3.json");
+
+	            
 			        }
 			      $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
 			    },
@@ -273,6 +280,13 @@
 	<button id="doctutorial" class="upper-buttons">APIDoc Tutorial</button>
 	<button id="flowtutorial" class="upper-buttons">APIFlow Tutorial</button>
 	<button id="docs" class="upper-buttons">Point.io API Documentation</button>
+
+	<div>
+        <form action="/authCookie" method="POST" enctype="multipart/form-data">
+    		<label>Auth</label><input id="auth" name="authId" value="FA54D35F-3988-41A9-903598C09071ACD1">
+        	<input type="submit" value="Set">                    
+		</form>
+	</div>
 
 	<div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
 	<div id="swagger-container" class="swagger-ui-wrap"></div>

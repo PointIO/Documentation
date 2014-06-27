@@ -1,0 +1,31 @@
+{
+  "REQUEST": {
+      "INPUT": {
+        "RELATEDS": [
+          {
+            "ID": "02E67D51%2D9395%2D42FB%2DB22FB8CE50DE674D",
+            "LABEL": "Joint_Venture_Agreement.pdf",
+            "TOOLTIP": "Download allowed",
+            "TYPE": "PIO",
+            "URL": "http://api.point.io/ui-html5/LinkViewer/app.html?id=02E67D51%2D9395%2D42FB%2DB22FB8CE50DE674D"
+          },
+          {
+            "ID": "56272D8E%2DA30E%2D454F%2D85BA39BD8DB39093",
+            "LABEL": "Security Agreement.doc",
+            "TOOLTIP": "Download prevented",
+            "TYPE": "PIO",
+            "URL": "http://api.point.io/ui-html5/LinkViewer/app.html?id=56272D8E%2DA30E%2D454F%2D85BA39BD8DB39093"
+          },
+          {
+            "ID": "http://point.io/blog",
+            "LABEL": "Point.io Blog URL",
+            "TOOLTIP": "A URL-based Resource",
+            "TYPE": "URL",
+            "URL": "http://point.io/blog"
+          }
+        ],
+        "PARTIES": [],
+		"FIELDS" : []        
+      }
+    }
+ }

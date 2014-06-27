@@ -88,7 +88,7 @@
                 {
                     "httpMethod": "POST",
                     "summary": "Create (start) new process",
-                    "notes": "instantiates a process that does not have required starting variables",
+                    "notes": "instantiates a process that does not have required starting variables. Filled parameters below show the workflow for an approvals process.",
                     "dataType": "void",
                     "nickname": "nickname",
                     "authorizations": {},
@@ -102,7 +102,7 @@
                         },
                         {
                             "name": "body",
-                            "description": "empty for now",
+                            "description": "Sample JSON has been automatically filled.",
                             "required": true,
                             "dataType": "Order",
                             "paramType": "body"
