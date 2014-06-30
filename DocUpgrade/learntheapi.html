@@ -189,15 +189,28 @@
 
 						$("#flowtwoput2").on("click", function() {
 							$("#FlowTutorialTwo\\.json_nickname_put_2_content").find('textarea[name="body"]').attr('id', 'flowtwobody2');
+
+
+						// Adds radio buttons dynamically to modal for this call.
+								var approvalRadio = $('<input type="radio" name="options" value="approve">');
+								var approvalText = $('<p style="display: inline"> Approve the reviewed document. </p>');
+								var rejectRadio = $('<input type="radio" name="options" value="reject">');
+								var rejectText = $('<p style="display: inline"> Reject the reviewed document. </p>');
+								var modalbody = $('<div></div>');
+
+								modalbody.append(approvalRadio, approvalText, '<br>', rejectRadio, rejectText);
+								$(".modal-body").append(modalbody);
+
+								// This loads the same JSON bodies as tasks/{taskId} as Flow Tutorial One because they use the same code.
 							$(".btn-primary").on("click", function() {
 								$("#flowtwobody2").html("");
-								if ($( "input:radio[name=options]:checked" ).val() == 'email') {
-									console.log("Got here 2");
-									$('#flowtwobody2').append("Yes this worked!");
-								} else if ($( "input:radio[name=options]:checked" ).val() == 'HRSignDoc') {
-									console.log("Got here 3");									
-									$('#flowtwobody2').append("Oh no you didn't");
+								if ($( "input:radio[name=options]:checked" ).val() == 'approve') {
+									$("#flowtwobody2").load("http://localhost/docupgrade/APIflow_tutorial/FlowOnePut3a.json");
+								} else if ($( "input:radio[name=options]:checked" ).val() == 'reject') {
+									$('#flowtwobody2').load("http://localhost/docupgrade/APIflow_tutorial/FlowOnePut3b.json");
 								}
+
+								modalbody.remove();
 							})
 						});
 
@@ -206,15 +219,25 @@
 
 						$("#flowthreeput2").on("click", function() {
 							$("#FlowTutorialThree\\.json_nickname_put_2_content").find('textarea[name="body"]').attr('id', 'flowthreebody1');
+
+								var approvalRadio = $('<input type="radio" name="options" value="approve">');
+								var approvalText = $('<p style="display: inline"> Approve the reviewed document. </p>');
+								var rejectRadio = $('<input type="radio" name="options" value="reject">');
+								var rejectText = $('<p style="display: inline"> Reject the reviewed document. </p>');
+								var modalbody = $('<div></div>');
+
+								modalbody.append(approvalRadio, approvalText, '<br>', rejectRadio, rejectText);
+								$(".modal-body").append(modalbody);
+
 							$(".btn-primary").on("click", function() {
 								$("#flowthreebody1").html("");
-								if ($( "input:radio[name=options]:checked" ).val() == 'email') {
-									console.log("Got here 2");
-									$('#flowthreebody1').append("Yes this worked!");
-								} else if ($( "input:radio[name=options]:checked" ).val() == 'HRSignDoc') {
-									console.log("Got here 3");									
-									$('#flowthreebody1').append("Oh no you didn't");
+								if ($( "input:radio[name=options]:checked" ).val() == 'approve') {
+									$('#flowthreebody1').load("http://localhost/docupgrade/APIflow_tutorial/FlowOnePut3a.json");
+								} else if ($( "input:radio[name=options]:checked" ).val() == 'reject') {
+									$('#flowthreebody1').load("http://localhost/docupgrade/APIflow_tutorial/FlowOnePut3b.json");
 								}
+
+								modalbody.remove();
 							})
 						});
 
@@ -230,7 +253,14 @@
 						// Adds the message name automatically to parameter in FlowTutorialTwo /messages/{messageName}
 						$("#FlowTutorialTwo\\.json_nickname_post_1_content").find('input.parameter.required[name="messageName"]').val("documentApprovalMsg");
 
-						
+						// Adds sample JSON to FlowTutorialTwo /messages/{messagename} body.
+						$("#FlowTutorialTwo\\.json_nickname_post_1_content").find('textarea[name="body"]').load("http://localhost/docupgrade/APIflow_tutorial/flowtwopost1.json");
+
+						// Adds a task id to the taskId parameter of FlowTutorialTwo /tasks/{task}
+						$("#FlowTutorialTwo\\.json_nickname_put_2_content").find('input.parameter.required[name="taskId"]').val("87247");
+
+						// Adds a task id to the taskId parameter of FlowTutorialThree /tasks/{task}
+						$("#FlowTutorialThree\\.json_nickname_put_2_content").find('input.parameter.required[name="taskId"]').val("87247");
 
 	            
 			        }
