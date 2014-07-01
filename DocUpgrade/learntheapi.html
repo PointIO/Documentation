@@ -12,7 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="public/css/prettify.css">
 	<link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-	
+
 	<!--Imports the following Javascript libraries-->	
 	<script type="text/javascript" src="public/js/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="public/js/jquery.slideto.min.js"></script>
@@ -26,6 +26,7 @@
 	<script type="text/javascript" src="public/js/highlight.7.3.pack.js"></script>
     <script type="text/javascript" src="public/js/prettify.js"></script>
 	<script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
 
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -85,6 +86,8 @@
 		});
 		//-----End of APIdoc tutorial-----//
 
+
+
 		//-----Start of APIflow Tutorial-----//
 		$("#flowtutorial").click(function() {
 			prettyPrint();
@@ -104,7 +107,7 @@
 						    // Disable caching of AJAX responses
 						    cache: false
 						});
-			            
+
 			            // Adds sample code for the first APIflow tutorial.
 			            $("#resource_FlowTutorialOne\\.json").append('<div id="FlowTutorialOneCode" class="hide"></div>')
 						$( "#FlowTutorialOneCode" ).load( "http://localhost/docupgrade/APIflow_tutorial/flowcode1.html" );           
@@ -123,7 +126,7 @@
 						// Allows user to add content to body field using modal.
 						$("#flowonepost2").on("click", function() {
 							$("#FlowTutorialOne\\.json_nickname_post_2_content").find('textarea[name="body"]').attr('id', 'flowonebody1');
-							
+
 
 							$(".btn-primary").on("click", function() {
 								$("#flowonebody1").html("");
@@ -262,7 +265,7 @@
 						// Adds a task id to the taskId parameter of FlowTutorialThree /tasks/{task}
 						$("#FlowTutorialThree\\.json_nickname_put_2_content").find('input.parameter.required[name="taskId"]').val("87247");
 
-	            
+
 			        }
 			      $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
 			    },
@@ -300,7 +303,7 @@
 						    // Disable caching of AJAX responses
 						    cache: false
 						});
-			               
+
 			        }
 			      $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
 			    },
@@ -317,11 +320,62 @@
 		});
 		//-----End of Documentation-----//
 
+		
+
 		// Sets APIdoc tutorial to be expanded on the page on first-load.
 		$("#doctutorial").click();
+		
+
+
+
 	});
 	//-----End of document.ready function-----//
 	</script>
+
+	<!--The following methods make saving the Session ID possible -->
+	<script type="text/javascript">
+
+		function getCookie(cname) {
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for(var i = 0; i < ca.length; i++) {
+				var c = ca[i].trim();
+				if (c.indexOf(name)==0) return c.substring(name.length, c.length);
+			}
+			return "";
+		}
+
+
+		function checkCookie() {
+			var sessionId = getCookie("sessionId");
+			if (sessionId != "") {
+				$(document).find('input.parameter.required[name="Authorization"]').val(sessionId);
+			}
+		}
+	
+		var createCookie = function(name, value, days) {
+			var expires;
+			if (days) {
+				var date = new Date();
+				date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+				expires = "; expires=" + date.toGMTString();
+			} else {
+				expires = "";
+			}
+			document.cookie = name + "=" + value + expires + "; path=/";
+		}
+
+
+		function saveSession(form) {
+			var cookieName = "sessionId";
+			var sessionId = form.auth.value;
+			createCookie(cookieName, sessionId, 1);
+			checkCookie();
+		}				
+	</script>
+
+
+
 </head>
 
 <body>
@@ -330,11 +384,17 @@
 	<button id="docs" class="upper-buttons">Point.io API Documentation</button>
 
 	<div>
-        <form action="/authCookie" method="POST" enctype="multipart/form-data">
-    		<label>Auth</label><input id="auth" name="authId" value="FA54D35F-3988-41A9-903598C09071ACD1">
-        	<input type="submit" value="Set">                    
+        <form>
+    		<label id="saveId">Copy your session ID here after completing an authorization call: </label>
+    		<input type="text" name="auth" value="">
+        	<input type="submit" value="Set" onClick="saveSession(this.form)">                    
 		</form>
 	</div>
+
+
+
+
+
 
 	<div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
 	<div id="swagger-container" class="swagger-ui-wrap"></div>
@@ -359,5 +419,14 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
 </body>
 </html>
