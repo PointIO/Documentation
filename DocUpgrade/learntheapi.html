@@ -121,22 +121,17 @@
 						$( "#FlowTutorialThreeCode" ).load( "http://localhost/docupgrade/APIflow_tutorial/flowcode3.html" );            
 
 						// Adds button to fill body field with sample json.
-						$("#FlowTutorialOne\\.json_nickname_post_2_content").find('textarea[name="body"]').parent().next().append('<button id="flowonepost2" data-toggle="modal" data-target="#openModal" style="margin-top: 10px">What it looks like in Account Maintenance</button>')
+						$("#FlowTutorialOne\\.json_nickname_post_2_content").find('textarea[name="body"]').parent().next().append('<button id="flowonepost2" data-toggle="modal" data-target="#openLgModal" style="margin-top: 10px">What it looks like in Account Maintenance</button>')
 
-						// Allows user to add content to body field using modal.
+						// Adds screenshot to modal.
 						$("#flowonepost2").on("click", function() {
-							$("#FlowTutorialOne\\.json_nickname_post_2_content").find('textarea[name="body"]').attr('id', 'flowonebody1');
+							var screendiv = $('<div></div>')
+							var screenshot = $('<img class="screenshot" src="http://localhost/docupgrade/images/viewer2.png">');
+							screendiv.append(screenshot);
+							$(".modal-body-lg").append(screendiv);
 
-
-							$(".btn-primary").on("click", function() {
-								$("#flowonebody1").html("");
-								if ($( "input:radio[name=options]:checked" ).val() == 'email') {
-									console.log("Got here 2");
-									$('#flowonebody1').append("Yes this worked!");
-								} else if ($( "input:radio[name=options]:checked" ).val() == 'whatevs') {
-									console.log("Got here 3");									
-									$('#flowonebody1').append("Oh no you didn't");
-								}
+							$(".btn-primary-lg").on("click", function() {
+								screendiv.remove();
 							})
 
 						});
@@ -171,20 +166,21 @@
 						});
 
 
-						$("#FlowTutorialTwo\\.json_nickname_post_1_content").find('textarea[name="body"]').parent().next().append('<button id="flowtwopost1" data-toggle="modal" data-target="#openModal" style="margin-top: 10px">Select a body</button>')
+						$("#FlowTutorialTwo\\.json_nickname_post_1_content").find('textarea[name="body"]').parent().next().append('<button id="flowtwopost1" data-toggle="modal" data-target="#openLgModal" style="margin-top: 10px">What it looks like in Account Maintenance</button>')
 
+
+						// Adds screenshot to modal.
 						$("#flowtwopost1").on("click", function() {
-							$("#FlowTutorialTwo\\.json_nickname_post_1_content").find('textarea[name="body"]').attr('id', 'flowtwobody1');
-							$(".btn-primary").on("click", function() {
-								$("#flowtwobody1").html("");
-								if ($( "input:radio[name=options]:checked" ).val() == 'email') {
-									console.log("Got here 2");
-									$('#flowtwobody1').append("Yes this worked!");
-								} else if ($( "input:radio[name=options]:checked" ).val() == 'HRSignDoc') {
-									console.log("Got here 3");									
-									$('#flowtwobody1').append("Oh no you didn't");
-								}
+							var screendiv = $('<div></div>')
+							var screenshot = $('<img class="screenshot" src="http://localhost/docupgrade/images/viewer2.png">');
+							screendiv.append(screenshot);
+							$(".modal-body-lg").append(screendiv);
+
+							$(".btn-primary-lg").on("click", function() {
+								screendiv.remove();
 							})
+
+
 						});
 
 						$("#FlowTutorialTwo\\.json_nickname_put_2_content").find('textarea[name="body"]').parent().next().append('<button id="flowtwoput2" data-toggle="modal" data-target="#openModal" style="margin-top: 10px">Select a body</button>')
@@ -399,7 +395,7 @@
 	<div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
 	<div id="swagger-container" class="swagger-ui-wrap"></div>
 
-	<div class="modal fade" id="openModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal fade" id="openModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -415,6 +411,23 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">Copy Code</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<div class="modal fade" id="openLgModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Screenshot of Point.io Account Maintenance after call is made</h4>
+      </div>
+      <div class="modal-body-lg">
+ 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary-lg" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

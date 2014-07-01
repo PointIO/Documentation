@@ -17,3 +17,9 @@
 	margin: 25px 10px 0 25px;
 }
 
+.screenshot {
+	display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+

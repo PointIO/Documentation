@@ -1,0 +1,52 @@
+{
+  "REQUEST": {
+      "INPUT": {
+        "RELATEDS": [
+           {
+             "ID": "02E67D51-9395-42FB-B22FB8CE50DE674D",
+             "LABEL": "Joint_Venture_Agreement.pdf",
+             "TOOLTIP": "Download allowed",
+             "TYPE": "PIO",
+             "URL": "http://api.point.io/ui-html5/LinkViewer/app.html?id=02E67D51-9395-42FB-B22FB8CE50DE674D"
+           },
+           {
+             "ID": "56272D8E-A30E-454F-85BA39BD8DB39093",
+             "LABEL": "Security Agreement.doc",
+             "TOOLTIP": "Download prevented",
+             "TYPE": "PIO",
+             "URL": "http://api.point.io/ui-html5/LinkViewer/app.html?id=56272D8E-A30E-454F-85BA39BD8DB39093"
+           },
+           {
+             "ID": "http://point.io/blog",
+             "LABEL": "Point.io Blog URL",
+             "TOOLTIP": "A URL-based Resource",
+             "TYPE": "URL",
+             "URL": "http://point.io/blog"
+           }
+        ],
+        "PARTIES": [
+          {
+            "ROLE": "Originator",
+            "ID": "email1@email.com",
+            "NAME": "Firstname Lastname"
+          },
+          {
+            "ROLE": "Respondee",
+            "ID": "email2@email.com",
+            "NAME": "Firstname Lastname"
+          },
+          {
+            "ROLE": "Approver",
+            "ID": "email3@email.com",
+            "NAME": "Firstname Lastname"
+          },
+          {
+            "ROLE": "Approver",
+            "ID": "email1@email.com",
+            "NAME": "Firstname Lastname"
+          }
+        ],
+		"FIELDS" : []        
+      }
+    }
+ }
