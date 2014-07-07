@@ -27,8 +27,69 @@
     <script type="text/javascript" src="public/js/prettify.js"></script>
 	<script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
+</head>
 
-	<script type="text/javascript">
+<body>
+	<button id="doctutorial" class="upper-buttons">APIDoc Tutorial</button>
+	<button id="flowtutorial" class="upper-buttons">APIFlow Tutorial</button>
+	<button id="docs" class="upper-buttons">Point.io API Documentation</button>
+
+	<div>
+        <form>
+    		<label id="saveId">Copy your session ID here after completing an authorization call: </label>
+    		<input type="text" name="auth" value="">
+        	<input type="submit" value="Set" onClick="saveSession(this.form)">                    
+		</form>
+	</div>
+
+	<!-- Swagger generated HTML goes in this div -->
+	<div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
+	<div id="swagger-container" class="swagger-ui-wrap"></div>
+
+	<!-- Modal to allow user to select sample code for certain APIFlow tutorial calls -->
+	<div class="modal fade" id="openModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title" id="myModalLabel">What Sample Body Would You Like To Use?</h4>
+	      </div>
+	      <div class="modal-body">
+	        <form action="">
+	  			<div id="modalbody"></div>
+			</form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary" data-dismiss="modal">Copy Code</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Modal to display screenshots of Account Maintenance. Needed large modal for this. -->
+	<div class="modal fade" id="openLgModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title" id="myModalLabel">Screenshot of Point.io Account Maintenance after call is made</h4>
+	      </div>
+	      <div class="modal-body-lg">
+	 
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary-lg" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+
+	
+
+
+<script type="text/javascript">
 		$(document).ready(function() {
 
 			//------Start of APIdoc tutorial-----
@@ -41,6 +102,51 @@
 			    supportHeaderParams: true,
 			    supportedSubmitMethods: ['get', 'post', 'put'],
 			    onComplete: function(swaggerApi, swaggerUi){
+
+			    	
+
+			    	// Adds a save sessionId button to all /auth calls.
+					function addOnClick() {
+				      console.log("W00t to the W00t");
+
+				      var authCalls = 
+					      ["#CoreTutorialOne\\.json_Auth_post_0_content",
+					      "#CoreTutorialTwo\\.json_Auth_post_0_content",
+					      "#CoreTutorialThree\\.json_Auth_post_0_content",
+					      "#CoreTutorialFour\\.json_Auth_post_0_content",
+					      "#CoreTutorialFive\\.json_Auth_post_0_content",
+					      "#FlowTutorialOne\\.json_nickname_post_0_content",
+					      "#FlowTutorialTwo\\.json_nickname_post_0_content",
+					      "#FlowTutorialThree\\.json_nickname_post_0_content",
+					      "#core\\.json_Auth_post_0_content",
+					      "#hub\\.json_Auth_post_0_content"];
+					    
+
+					      $(authCalls).each(function(i) {
+					        $(authCalls[i]).find('input.submit[name="commit"]').on("click", function(){
+					        	//var saveSessionForm = $('<form></form>');
+					        	//var saveSession = $('<input type="submit" value="Set SessionId" onclick="getSessionId(authCalls[i])">');
+					        	var saveSession = $('<button onclick="getSessionId($(this))">Save Session ID</button>');
+					        	//saveSessionForm.append(saveSession);
+					        	$(authCalls[i]).find('.response h4:contains("Response Body")').append(saveSession);
+					        })
+
+
+
+					    })
+				    }
+					
+					addOnClick();
+
+
+					
+
+
+
+
+
+			    	
+
 			    	if(console) {
 			            console.log("Loaded SwaggerUI")
 			            $(".endpoints").addClass("col-md-6")
@@ -132,6 +238,7 @@
 
 							$(".btn-primary-lg").on("click", function() {
 								screendiv.remove();
+								screenshot.remove();
 							})
 
 						});
@@ -178,6 +285,7 @@
 
 							$(".btn-primary-lg").on("click", function() {
 								screendiv.remove();
+								screenshot.remove();
 							})
 
 
@@ -320,16 +428,33 @@
 
 		// Sets APIdoc tutorial to be expanded on the page on first-load.
 		$("#doctutorial").click();
-		
-
 
 
 	});
 	//-----End of document.ready function-----//
 	</script>
 
+
 	<!--The following methods make saving the Session ID possible -->
-	<script type="text/javascript">
+	<script>
+
+		function getSessionId() {
+			//Is there a span of class "attribute" with text "SESSIONKEY"?
+			// If so, get the session key and return it.
+			for (i = 0; i < $("span.attribute").length; i++) { 
+				if($("span.attribute")[i].textContent === "SESSIONKEY") {
+					//alert("Session ID was found");
+					var sessionIdValue = $($("span.attribute")[i]).next().text().replace('"','');
+					var betterSI = sessionIdValue.substr(0, sessionIdValue.length-1);
+					console.log(betterSI);
+					saveSession(betterSI);
+					break;	
+				}
+			}
+				//alert("Authentication failed, so no session ID could be saved. Please try the /auth call again.");
+					// Else, alert the user their authentication failed and no session key could be saved.	
+					
+		}
 
 		function getCookie(cname) {
 			var name = cname + "=";
@@ -361,84 +486,17 @@
 			document.cookie = name + "=" + value + expires + "; path=/";
 		}
 
+		
 
-		function saveSession(form) {
+
+		function saveSession(sessionValue) {
 			var cookieName = "sessionId";
-			var sessionId = form.auth.value;
+			var sessionId = sessionValue;
 			createCookie(cookieName, sessionId, 1);
 			checkCookie();
-		}				
+		}
+					
 	</script>
-
-
-
-</head>
-
-<body>
-	<button id="doctutorial" class="upper-buttons">APIDoc Tutorial</button>
-	<button id="flowtutorial" class="upper-buttons">APIFlow Tutorial</button>
-	<button id="docs" class="upper-buttons">Point.io API Documentation</button>
-
-	<div>
-        <form>
-    		<label id="saveId">Copy your session ID here after completing an authorization call: </label>
-    		<input type="text" name="auth" value="">
-        	<input type="submit" value="Set" onClick="saveSession(this.form)">                    
-		</form>
-	</div>
-
-
-
-
-
-
-	<div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
-	<div id="swagger-container" class="swagger-ui-wrap"></div>
-
-	<div class="modal fade" id="openModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">What Sample Body Would You Like To Use?</h4>
-      </div>
-      <div class="modal-body">
-        <form action="">
-  			<div id="modalbody"></div>
-		<!--<input type="radio" name="options" value="email">  Email<br>
-		<input type="radio" name="options" value="HRSignDoc">  HR SignDoc -->
-		</form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Copy Code</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-	<div class="modal fade" id="openLgModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Screenshot of Point.io Account Maintenance after call is made</h4>
-      </div>
-      <div class="modal-body-lg">
- 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary-lg" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
 
 
 </body>
