@@ -23,3 +23,10 @@
     margin-right: auto
 }
 
+.cookie {
+	display: block;
+	float: right;
+	color: white;
+	background-color: maroon;
+}
+

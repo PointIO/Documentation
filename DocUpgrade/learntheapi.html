@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-
 <head>
 	<meta charset="utf-8">
 	<title>Point.io Tutorials and Documentation</title>
+	
 	<!--Imports the following CSS-->
 	<link rel="stylesheet" type="text/css" href="public/css/tutorials.css">
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
@@ -26,21 +26,13 @@
 	<script type="text/javascript" src="public/js/highlight.7.3.pack.js"></script>
     <script type="text/javascript" src="public/js/prettify.js"></script>
 	<script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
 </head>
 
 <body>
+	<!-- Buttons to toggle between tutorials. -->
 	<button id="doctutorial" class="upper-buttons">APIDoc Tutorial</button>
 	<button id="flowtutorial" class="upper-buttons">APIFlow Tutorial</button>
 	<button id="docs" class="upper-buttons">Point.io API Documentation</button>
-
-	<div>
-        <form>
-    		<label id="saveId">Copy your session ID here after completing an authorization call: </label>
-    		<input type="text" name="auth" value="">
-        	<input type="submit" value="Set" onClick="saveSession(this.form)">                    
-		</form>
-	</div>
 
 	<!-- Swagger generated HTML goes in this div -->
 	<div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
@@ -102,33 +94,26 @@
 			    supportHeaderParams: true,
 			    supportedSubmitMethods: ['get', 'post', 'put'],
 			    onComplete: function(swaggerApi, swaggerUi){
-
+			    	checkCookie();
 			    	
 
-			    	// Adds a save sessionId button to all /auth calls.
+			    	// Adds a save sessionkey button to all /auth calls.
 					function addOnClick() {
-				      console.log("W00t to the W00t");
 
 				      var authCalls = 
 					      ["#CoreTutorialOne\\.json_Auth_post_0_content",
 					      "#CoreTutorialTwo\\.json_Auth_post_0_content",
 					      "#CoreTutorialThree\\.json_Auth_post_0_content",
 					      "#CoreTutorialFour\\.json_Auth_post_0_content",
-					      "#CoreTutorialFive\\.json_Auth_post_0_content",
-					      "#FlowTutorialOne\\.json_nickname_post_0_content",
-					      "#FlowTutorialTwo\\.json_nickname_post_0_content",
-					      "#FlowTutorialThree\\.json_nickname_post_0_content",
-					      "#core\\.json_Auth_post_0_content",
-					      "#hub\\.json_Auth_post_0_content"];
+					      "#CoreTutorialFive\\.json_Auth_post_0_content"];
 					    
+					    var saveSession = $('<input class="cookie" type="submit" value="Save Session Key" onclick="getSessionId($(this))">');
 
 					      $(authCalls).each(function(i) {
 					        $(authCalls[i]).find('input.submit[name="commit"]').on("click", function(){
-					        	//var saveSessionForm = $('<form></form>');
-					        	//var saveSession = $('<input type="submit" value="Set SessionId" onclick="getSessionId(authCalls[i])">');
-					        	var saveSession = $('<button onclick="getSessionId($(this))">Save Session ID</button>');
-					        	//saveSessionForm.append(saveSession);
-					        	$(authCalls[i]).find('.response h4:contains("Response Body")').append(saveSession);
+					        		if ($(authCalls[i]).has(saveSession.length)) {
+					        			$(authCalls[i]).find('.response h4:contains("Response Body")').append(saveSession);
+					        		}
 					        })
 
 
@@ -136,14 +121,8 @@
 					    })
 				    }
 					
+
 					addOnClick();
-
-
-					
-
-
-
-
 
 			    	
 
@@ -160,7 +139,6 @@
 						// Adds sample code for the first APIdoc tutorial.
 						$("#resource_CoreTutorialOne\\.json").append('<div id="CoreTutorialOneCode" class="hide"></div>')
 						$( "#CoreTutorialOneCode" ).load( "http://localhost/docupgrade/APIdoc_tutorial/code1.html" );
-
 						// Adds sample code for the second APIdoc tutorial.
 						$("#resource_CoreTutorialTwo\\.json").append('<div id="CoreTutorialTwoCode" class="hide"></div>')
 						$( "#CoreTutorialTwoCode" ).load( "http://localhost/docupgrade/APIdoc_tutorial/code2.html" );	            
@@ -204,6 +182,32 @@
 			    supportHeaderParams: true,
 			    supportedSubmitMethods: ['get', 'post', 'put'],
 			    onComplete: function(swaggerApi, swaggerUi){
+			    	checkCookie();
+
+			    	// Adds Save SessionKey button to all auth calls.
+			    	function addOnClick() {
+
+				      var authCalls = 
+					      ["#FlowTutorialOne\\.json_nickname_post_0_content",
+					      "#FlowTutorialTwo\\.json_nickname_post_0_content",
+					      "#FlowTutorialThree\\.json_nickname_post_0_content"];
+					    
+
+					      var saveSession = $('<input class="cookie" type="submit" value="Save Session Key" onclick="getSessionId($(this))">');
+
+					      $(authCalls).each(function(i) {
+					        $(authCalls[i]).find('input.submit[name="commit"]').on("click", function(){
+					        	if ($(authCalls[i]).has(saveSession.length)) {
+					        		$(authCalls[i]).find('.response h4:contains("Response Body")').append(saveSession);
+					        	}
+					        })
+
+					    })
+				    }
+					
+					addOnClick();
+
+
 			    	if(console) {
 			            console.log("Loaded SwaggerUI")
 			            $(".endpoints").addClass("col-md-6")
@@ -382,7 +386,7 @@
 			    docExpansion: "none"
 			});
 
-			window.swaggerUi.load();	
+			window.swaggerUi.load();
 		});
 		//-----End of APIflow tutorial-----//
 
@@ -396,6 +400,32 @@
 			    supportHeaderParams: true,
 			    supportedSubmitMethods: ['get', 'post', 'put'],
 			    onComplete: function(swaggerApi, swaggerUi){
+			    	checkCookie();
+
+			    	// Adds Save SessionKey button to all auth calls.
+			    	function addOnClick() {
+
+				      var authCalls = 
+					      ["#core\\.json_Auth_post_0_content",
+					      "#hub\\.json_Auth_post_0_content"];
+					    
+
+					      var saveSession = $('<input class="cookie" type="submit" value="Save Session Key" onclick="getSessionId($(this))">');
+
+					      $(authCalls).each(function(i) {
+					        $(authCalls[i]).find('input.submit[name="commit"]').on("click", function(){
+					        	if ($(authCalls[i]).has(saveSession.length)) {
+					        		$(authCalls[i]).find('.response h4:contains("Response Body")').append(saveSession);
+					        	}
+					        })
+
+
+
+					    })
+				    }
+					
+					addOnClick();
+
 			    	if(console) {
 			            console.log("Loaded SwaggerUI")
 			            // console.log(swaggerApi);
@@ -420,7 +450,7 @@
 			    docExpansion: "none"
 			});
 
-			window.swaggerUi.load();	
+			window.swaggerUi.load();
 		});
 		//-----End of Documentation-----//
 
@@ -439,23 +469,22 @@
 	<script>
 
 		function getSessionId() {
-			//Is there a span of class "attribute" with text "SESSIONKEY"?
-			// If so, get the session key and return it.
+			//Is there a span of class "attribute" with text "SESSIONKEY"? If so, get the session key and create a cookie of it.
 			for (i = 0; i < $("span.attribute").length; i++) { 
 				if($("span.attribute")[i].textContent === "SESSIONKEY") {
-					//alert("Session ID was found");
+					alert("The session key will now be pre-filled for you.");
 					var sessionIdValue = $($("span.attribute")[i]).next().text().replace('"','');
 					var betterSI = sessionIdValue.substr(0, sessionIdValue.length-1);
 					console.log(betterSI);
 					saveSession(betterSI);
-					break;	
+					return;	
 				}
 			}
-				//alert("Authentication failed, so no session ID could be saved. Please try the /auth call again.");
-					// Else, alert the user their authentication failed and no session key could be saved.	
-					
+				// Else, alert the user their authentication failed and no session key could be saved.
+				alert("Authentication failed, so no session key could be saved. Please try the /auth call again.");			
 		}
 
+		// Returns the cookie value if it exists.
 		function getCookie(cname) {
 			var name = cname + "=";
 			var ca = document.cookie.split(';');
@@ -466,7 +495,7 @@
 			return "";
 		}
 
-
+		// Checks if cookie exists and auto-fills all Authorization fields.
 		function checkCookie() {
 			var sessionId = getCookie("sessionId");
 			if (sessionId != "") {
@@ -474,6 +503,7 @@
 			}
 		}
 	
+		// Creates a cookie which expires in 24 hours.
 		var createCookie = function(name, value, days) {
 			var expires;
 			if (days) {
@@ -486,9 +516,7 @@
 			document.cookie = name + "=" + value + expires + "; path=/";
 		}
 
-		
-
-
+		// Creates a cookie and auto-fills all Authorization fields.
 		function saveSession(sessionValue) {
 			var cookieName = "sessionId";
 			var sessionId = sessionValue;
