@@ -89,7 +89,7 @@
 			prettyPrint();
 
 			window.swaggerUi = new SwaggerUi( {
-			    discoveryUrl: "http://localhost/docupgrade/APIdoc_tutorial/tutorials.json",
+			    discoveryUrl: "/docupgrade/APIdoc_tutorial/tutorials.json",
 			    dom_id:"swagger-container",
 			    supportHeaderParams: true,
 			    supportedSubmitMethods: ['get', 'post', 'put'],
@@ -138,19 +138,19 @@
 
 						// Adds sample code for the first APIdoc tutorial.
 						$("#resource_CoreTutorialOne\\.json").append('<div id="CoreTutorialOneCode" class="hide"></div>')
-						$( "#CoreTutorialOneCode" ).load( "http://localhost/docupgrade/APIdoc_tutorial/code1.html" );
+						$( "#CoreTutorialOneCode" ).load( "/docupgrade/APIdoc_tutorial/code1.html" );
 						// Adds sample code for the second APIdoc tutorial.
 						$("#resource_CoreTutorialTwo\\.json").append('<div id="CoreTutorialTwoCode" class="hide"></div>')
-						$( "#CoreTutorialTwoCode" ).load( "http://localhost/docupgrade/APIdoc_tutorial/code2.html" );	            
+						$( "#CoreTutorialTwoCode" ).load( "/docupgrade/APIdoc_tutorial/code2.html" );	            
 						// Adds sample code for the third APIdoc tutorial.
 						$("#resource_CoreTutorialThree\\.json").append('<div id="CoreTutorialThreeCode" class="hide"></div>')
-						$( "#CoreTutorialThreeCode" ).load( "http://localhost/docupgrade/APIdoc_tutorial/code3.html" );	            
+						$( "#CoreTutorialThreeCode" ).load( "/docupgrade/APIdoc_tutorial/code3.html" );	            
 						// Adds sample code for the fourth APIdoc tutorial.
 						$("#resource_CoreTutorialFour\\.json").append('<div id="CoreTutorialFourCode" class="hide"></div>')
-						$( "#CoreTutorialFourCode" ).load( "http://localhost/docupgrade/APIdoc_tutorial/code4.html" );	            
+						$( "#CoreTutorialFourCode" ).load( "/docupgrade/APIdoc_tutorial/code4.html" );	            
 						// Adds sample code for the fifth APIdoc tutorial.
 						$("#resource_CoreTutorialFive\\.json").append('<div id="CoreTutorialFiveCode" class="hide"></div>')
-						$( "#CoreTutorialFiveCode" ).load( "http://localhost/docupgrade/APIdoc_tutorial/code5.html" );	          
+						$( "#CoreTutorialFiveCode" ).load( "/docupgrade/APIdoc_tutorial/code5.html" );	          
 
 
 
@@ -177,7 +177,7 @@
 			prettyPrint();
 
 			window.swaggerUi = new SwaggerUi({
-			    discoveryUrl: "http://localhost/docupgrade/APIflow_tutorial/APIFlow.json",
+			    discoveryUrl: "/docupgrade/APIflow_tutorial/APIFlow.json",
 			    dom_id:"swagger-container",
 			    supportHeaderParams: true,
 			    supportedSubmitMethods: ['get', 'post', 'put'],
@@ -220,15 +220,15 @@
 
 			            // Adds sample code for the first APIflow tutorial.
 			            $("#resource_FlowTutorialOne\\.json").append('<div id="FlowTutorialOneCode" class="hide"></div>')
-						$( "#FlowTutorialOneCode" ).load( "http://localhost/docupgrade/APIflow_tutorial/flowcode1.html" );           
+						$( "#FlowTutorialOneCode" ).load( "/docupgrade/APIflow_tutorial/flowcode1.html" );           
 
 						// Adds sample code for the second APIflow tutorial.
 						$("#resource_FlowTutorialTwo\\.json").append('<div id="FlowTutorialTwoCode" class="hide"></div>')
-						$( "#FlowTutorialTwoCode" ).load( "http://localhost/docupgrade/APIflow_tutorial/flowcode2.html" );	            
+						$( "#FlowTutorialTwoCode" ).load( "/docupgrade/APIflow_tutorial/flowcode2.html" );	            
 
 						// Adds sample code for the third APIflow tutorial.
 						$("#resource_FlowTutorialThree\\.json").append('<div id="FlowTutorialThreeCode" class="hide"></div>')
-						$( "#FlowTutorialThreeCode" ).load( "http://localhost/docupgrade/APIflow_tutorial/flowcode3.html" );            
+						$( "#FlowTutorialThreeCode" ).load( "/docupgrade/APIflow_tutorial/flowcode3.html" );            
 
 						// Adds button to fill body field with sample json.
 						$("#FlowTutorialOne\\.json_nickname_post_2_content").find('textarea[name="body"]').parent().next().append('<button id="flowonepost2" data-toggle="modal" data-target="#openLgModal" style="margin-top: 10px">What it looks like in Account Maintenance</button>')
@@ -236,7 +236,7 @@
 						// Adds screenshot to modal.
 						$("#flowonepost2").on("click", function() {
 							var screendiv = $('<div></div>')
-							var screenshot = $('<img class="screenshot" src="http://localhost/docupgrade/images/viewer2.png">');
+							var screenshot = $('<img class="screenshot" src="/docupgrade/images/viewer2.png">');
 							screendiv.append(screenshot);
 							$(".modal-body-lg").append(screendiv);
 
@@ -267,9 +267,9 @@
 							$(".btn-primary").on("click", function() {
 								$("#flowonebody2").html("");
 								if ($( "input:radio[name=options]:checked" ).val() == 'approve') {
-									$('#flowonebody2').load("http://localhost/docupgrade/APIflow_tutorial/FlowOnePut3a.json");
+									$('#flowonebody2').load("/docupgrade/APIflow_tutorial/FlowOnePut3a.json");
 								} else if ($( "input:radio[name=options]:checked" ).val() == 'reject') {
-									$('#flowonebody2').load("http://localhost/docupgrade/APIFlow_tutorial/FlowOnePut3b.json");
+									$('#flowonebody2').load("/docupgrade/APIFlow_tutorial/FlowOnePut3b.json");
 								}
 
 								modalbody.remove();
@@ -283,7 +283,7 @@
 						// Adds screenshot to modal.
 						$("#flowtwopost1").on("click", function() {
 							var screendiv = $('<div></div>')
-							var screenshot = $('<img class="screenshot" src="http://localhost/docupgrade/images/viewer2.png">');
+							var screenshot = $('<img class="screenshot" src="/docupgrade/images/viewer2.png">');
 							screendiv.append(screenshot);
 							$(".modal-body-lg").append(screendiv);
 
@@ -316,9 +316,9 @@
 							$(".btn-primary").on("click", function() {
 								$("#flowtwobody2").html("");
 								if ($( "input:radio[name=options]:checked" ).val() == 'approve') {
-									$("#flowtwobody2").load("http://localhost/docupgrade/APIflow_tutorial/FlowOnePut3a.json");
+									$("#flowtwobody2").load("/docupgrade/APIflow_tutorial/FlowOnePut3a.json");
 								} else if ($( "input:radio[name=options]:checked" ).val() == 'reject') {
-									$('#flowtwobody2').load("http://localhost/docupgrade/APIflow_tutorial/FlowOnePut3b.json");
+									$('#flowtwobody2').load("/docupgrade/APIflow_tutorial/FlowOnePut3b.json");
 								}
 
 								modalbody.remove();
@@ -343,9 +343,9 @@
 							$(".btn-primary").on("click", function() {
 								$("#flowthreebody1").html("");
 								if ($( "input:radio[name=options]:checked" ).val() == 'approve') {
-									$('#flowthreebody1').load("http://localhost/docupgrade/APIflow_tutorial/FlowOnePut3a.json");
+									$('#flowthreebody1').load("/docupgrade/APIflow_tutorial/FlowOnePut3a.json");
 								} else if ($( "input:radio[name=options]:checked" ).val() == 'reject') {
-									$('#flowthreebody1').load("http://localhost/docupgrade/APIflow_tutorial/FlowOnePut3b.json");
+									$('#flowthreebody1').load("/docupgrade/APIflow_tutorial/FlowOnePut3b.json");
 								}
 
 								modalbody.remove();
@@ -356,7 +356,7 @@
 						$("#FlowTutorialOne\\.json_nickname_post_2_content").find('input.parameter.required[name="name"]').val("approval");
 
 						// Adds sample JSON to FlowTutorialOne /processes/{name} body.
-						$("#FlowTutorialOne\\.json_nickname_post_2_content").find('textarea[name="body"]').load("http://localhost/docupgrade/APIflow_tutorial/FlowOnePost2.json");
+						$("#FlowTutorialOne\\.json_nickname_post_2_content").find('textarea[name="body"]').load("/docupgrade/APIflow_tutorial/FlowOnePost2.json");
 
 						// Adds a task id to the taskId parameter of FlowTutorialOne /tasks/{task}
 						$("#FlowTutorialOne\\.json_nickname_put_3_content").find('input.parameter.required[name="taskId"]').val("87247");
@@ -365,7 +365,7 @@
 						$("#FlowTutorialTwo\\.json_nickname_post_1_content").find('input.parameter.required[name="messageName"]').val("documentApprovalMsg");
 
 						// Adds sample JSON to FlowTutorialTwo /messages/{messagename} body.
-						$("#FlowTutorialTwo\\.json_nickname_post_1_content").find('textarea[name="body"]').load("http://localhost/docupgrade/APIflow_tutorial/flowtwopost1.json");
+						$("#FlowTutorialTwo\\.json_nickname_post_1_content").find('textarea[name="body"]').load("/docupgrade/APIflow_tutorial/flowtwopost1.json");
 
 						// Adds a task id to the taskId parameter of FlowTutorialTwo /tasks/{task}
 						$("#FlowTutorialTwo\\.json_nickname_put_2_content").find('input.parameter.required[name="taskId"]').val("87247");
@@ -395,7 +395,7 @@
 			prettyPrint();
 
 			window.swaggerUi = new SwaggerUi({
-			    discoveryUrl: "http://localhost/docupgrade/Documentation/spec0.json",
+			    discoveryUrl: "/docupgrade/Documentation/spec0.json",
 			    dom_id:"swagger-container",
 			    supportHeaderParams: true,
 			    supportedSubmitMethods: ['get', 'post', 'put'],
