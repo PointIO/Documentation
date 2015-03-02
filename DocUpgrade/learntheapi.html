@@ -5,13 +5,16 @@
 	<title>Point.io Tutorials and Documentation</title>
 	
 	<!--Imports the following CSS-->
-	<link rel="stylesheet" type="text/css" href="public/css/tutorials.css">
-	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
+	
+	<!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700"> -->
 	<link rel="stylesheet" type="text/css" href="public/css/hightlight.default.css">
 	<link rel="stylesheet" type="text/css" href="public/css/screen.css">
 	<link rel="stylesheet" type="text/css" href="public/css/prettify.css">
 	<link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="public/css/tutorials.css">
+	<!-- <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"> -->
+	<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,700,700italic&subset=greek-ext" media="all">
+	<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,regular,600,700&amp;subset=greek-ext" media="all">
 
 	<!--Imports the following Javascript libraries-->	
 	<script type="text/javascript" src="public/js/jquery-2.1.1.min.js"></script>
@@ -29,14 +32,24 @@
 </head>
 
 <body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+	  <div class="container">
+	   <img src="http://point.io/sites/all/themes/point-html5/logo.png" alt="" id="logo">
+	   <!-- <div class="upper-buttons"> -->
+		   <a id="docs" class="yousuck">Point.io API Documentation</a>
+		   <a id="flowtutorial" class="yousuck">APIFlow Tutorial</a>
+		   <a id="doctutorial" class="yousuck">APIDoc Tutorial</a>
+		<!-- </div> -->
+	  </div>
+	</nav>
 	<!-- Buttons to toggle between tutorials. -->
-	<button id="doctutorial" class="upper-buttons">APIDoc Tutorial</button>
+	<!-- <button id="doctutorial" class="upper-buttons">APIDoc Tutorial</button>
 	<button id="flowtutorial" class="upper-buttons">APIFlow Tutorial</button>
-	<button id="docs" class="upper-buttons">Point.io API Documentation</button>
+	<button id="docs" class="upper-buttons">Point.io API Documentation</button> -->
 
 	<!-- Swagger generated HTML goes in this div -->
 	<div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
-	<div id="swagger-container" class="swagger-ui-wrap"></div>
+	<div id="swagger-container" class="swagger-ui-wrap" style="padding-top: 70px"></div>
 
 	<!-- Modal to allow user to select sample code for certain APIFlow tutorial calls -->
 	<div class="modal fade" id="openModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
