@@ -58,9 +58,9 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     text-decoration: none;
 }
 
-h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+/*h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
     text-decoration: underline;
-}
+}*/
 
 h1 span.divider, h2 span.divider, h3 span.divider, h4 span.divider, h5 span.divider, h6 span.divider {
     color: #aaaaaa;
@@ -473,16 +473,20 @@ body p#colophon a {
     color: #547f00;
 }
 
+body ul.options {
+    display: none;
+}
+
 body ul#resources {
     font-family: "Ubuntu", sans-serif;
     font-size: 0.9em;
 	list-style-type: none;
 }
 
-body ul#resources li.resource {
+/*body ul#resources li.resource {
     border-bottom: 1px solid #dddddd;
     line-height: inherit;
-}
+}*/
 
 body ul#resources li.resource:last-child {
     border-bottom: none;
@@ -514,14 +518,15 @@ body ul#resources li.resource div.heading h2 a:hover {
     color: black;
 }
 
-body ul#resources li.resource div.heading ul.options {
+body ul#resources li.resource div.heading {
     overflow: hidden;
     padding: 0;
     display: block;
     clear: none;
-    float: right;
+    float: left;
     margin: 14px 10px 0 0;
     list-style-type: none;
+    width: 100%;
 }
 
 body ul#resources li.resource div.heading ul.options li {
@@ -552,7 +557,7 @@ body ul#resources li.resource div.heading ul.options li a {
 }
 
 body ul#resources li.resource div.heading ul.options li a:hover {
-    text-decoration: underline;
+    /*text-decoration: underline;*/
     color: black;
 }
 
