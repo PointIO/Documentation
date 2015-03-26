@@ -18,6 +18,7 @@
 
 	<!--Imports the following Javascript libraries-->	
 	<script type="text/javascript" src="public/js/jquery-2.1.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	<script type="text/javascript" src="public/js/jquery.slideto.min.js"></script>
 	<script type="text/javascript" src="public/js/jquery.wiggle.min.js"></script>
 	<script type="text/javascript" src="public/js/jquery.ba-bbq.min.js"></script>
@@ -88,11 +89,6 @@
 	    </div>
 	  </div>
 	</div>
-
-
-
-	
-
 
 <script type="text/javascript">
 		$(document).ready(function() {
@@ -538,7 +534,13 @@
 		}
 					
 	</script>
-
-
+	<script>
+	$(document).ready(function () {
+		$("#resources").hover(function () {
+			console.log("Function fired");
+			// $(".heading").animate({border: "30px 0 0 0"}, 500);
+		});
+	})
+	</script>
 </body>
 </html>
